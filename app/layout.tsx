@@ -1,10 +1,8 @@
+import * as React from 'react'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
+import Navbar from './components/NavbarComponent'
 import { Providers } from './providers'
-import Navbar from './components/Navbar'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Shubham Singh',
@@ -17,13 +15,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body>
         <Providers>
         <Navbar />
-        <main className='flex'>
         {children}
-        </main>
         </Providers>
         </body>
     </html>
