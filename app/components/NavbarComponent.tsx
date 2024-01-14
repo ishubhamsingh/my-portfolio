@@ -21,7 +21,7 @@ export default function NavbarComponent() {
 
   const isActivePath = (href: string) => {
     return href === pathname;
-  }
+  };
 
   const navItems = [
     {
@@ -38,37 +38,53 @@ export default function NavbarComponent() {
     },
   ];
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered maxWidth={"full"}>
-      <NavbarContent justify={"start"}>
+    <Navbar
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+      isBordered
+      maxWidth={"full"}
+    >
+      <NavbarContent className={"gap-4 max-w-fit"} justify={"start"}>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand className="gap-4">
-          <Avatar isBordered src="/shubham-singh-dp-1.png" size="md" />  
+        <NavbarBrand className="gap-4 max-w-fit">
+          <Avatar isBordered src="/shubham-singh-dp-1.png" size="md" />
           <p className="font-bold text-inherit uppercase">ishubhamsingh</p>
         </NavbarBrand>
       </NavbarContent>
-      <NavbarContent className={"hidden sm:flex gap-8"} justify={"center"}>
+      <NavbarContent className={"gap-8"} justify={"end"}>
         {navItems.map((item, index) => (
-          <NavbarItem key={`${item}-${index}`} isActive={isActivePath(item.href)}>
-            <Link color={isActivePath(item.href) ? "primary" : "foreground"}  href={item.href}>
+          <NavbarItem
+            className={"hidden sm:block"}
+            key={`${item}-${index}`}
+            isActive={isActivePath(item.href)}
+          >
+            <Link
+              color={isActivePath(item.href) ? "primary" : "foreground"}
+              href={item.href}
+            >
               {item.title}
             </Link>
           </NavbarItem>
         ))}
-      </NavbarContent>
-      <NavbarContent justify={"end"}>
-        <ThemeSwitch />
+        <NavbarItem>
+          <ThemeSwitch />
+        </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         {navItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`} isActive={isActivePath(item.href)}>
+          <NavbarMenuItem
+            key={`${item}-${index}`}
+            isActive={isActivePath(item.href)}
+          >
             <Link
               href={item.href}
-              color={isActivePath(item.href) ? "primary" : "foreground"} 
+              color={isActivePath(item.href) ? "primary" : "foreground"}
               className="w-full"
               size="lg"
+              onPress={() => setIsMenuOpen(false)}
             >
               {item.title}
             </Link>
