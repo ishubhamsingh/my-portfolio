@@ -1,4 +1,3 @@
-import { Avatar, Divider } from "@nextui-org/react";
 import Image from "next/image";
 import {SiAndroidstudio, SiKotlin, SiReact, SiGit} from "react-icons/si";
 
@@ -40,7 +39,7 @@ export default function Home() {
           <p className="text-lg m-auto font-medium text-foreground-500">
             I&apos;m a Software Engineer who loves making modern Android & Web apps.
           </p>
-          <div className="flex flex-row gap-8">
+          <div className="flex flex-row gap-8 max-sm:flex-col items-start">
             {skills.map((skill, index) => (
               <div className="flex flex-row gap-2 item-center justify-center" key={`${skill}+${index}`}>
                 {skill.icon}
