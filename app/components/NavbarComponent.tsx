@@ -84,7 +84,7 @@ export default function NavbarComponent() {
               color={isActivePath(item.href) ? "primary" : "foreground"}
               className="w-full"
               size="lg"
-              onPress={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}
             >
               {item.title}
             </Link>
