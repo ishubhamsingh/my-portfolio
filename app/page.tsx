@@ -23,12 +23,21 @@ const skills = [
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen justify-center items-center">
-      <section className="flex flex-row justify-between items-center gap-16 p-2 m-24 w-full max-sm:flex-col">
-        <div className="flex flex-col max-w-fit max-h-fit gap-4 m-auto max-sm:mx-24 items-start">
+      <section className="flex flex-row justify-between items-center gap-16 p-8 w-full max-sm:flex-col">
+      <div className="hidden flex-row m-auto items-center max-sm:flex">
+          <Image
+            src={"/shubham-singh-dp-1.png"}
+            alt="Shubham Singh"
+            width={200}
+            height={200}
+            className="rounded-full border-spacing-16 border-4 border-foreground-400"
+          />
+        </div>
+        <div className="flex flex-col gap-4 m-auto items-start">
           <p className="font-regular text-5xl uppercase text-foreground-500">
             Hello,
           </p>
-          <div className="flex flex-row items-start max-w-fit max-h-fit gap-2 max-sm:flex-col">
+          <div className="flex flex-row items-start gap-2 max-sm:flex-col">
             <p className="text-5xl font-regular text-foreground-500">
               I&apos;M
             </p>
@@ -48,8 +57,7 @@ export default function Home() {
               ))}
           </div>  
         </div>
-
-        <div className="flex max-w-fit flex-row m-auto items-star">
+        <div className="flex max-w-fit flex-row m-auto items-center max-sm:hidden">
           <Image
             src={"/shubham-singh-dp-1.png"}
             alt="Shubham Singh"
