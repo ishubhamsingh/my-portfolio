@@ -1,5 +1,6 @@
 import { Divider } from "@nextui-org/react";
 import HeroComponent from "./components/HeroComponent";
+import ProjectComponent from "./components/ProjectComponent";
 
 
 export default function Home() {
@@ -7,9 +8,7 @@ export default function Home() {
     <main className="flex flex-col min-h-screen items-center">
       <HeroComponent />
       <Divider />
-      <section>
-        
-      </section>
+      <ProjectComponent />
     </main>
   );
 }
