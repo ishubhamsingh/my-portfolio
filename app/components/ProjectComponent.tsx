@@ -21,7 +21,7 @@ const projects = [
   {
     name: "Walldeck",
     description: "A beautiful wallpaper app, designed in material design, contains beautiful, original wallpapers.",
-    techStack: ["Kotlin", "Compose"],
+    techStack: ["Kotlin", "Compose", "Retrofit", "Gson", "Hilt", "Room"],
     link: "https://play.google.com/store/apps/details?id=dev.ishubhamsingh.walldeck",
     image: "/walldeck.webp"
   },
@@ -31,6 +31,27 @@ const projects = [
     techStack: ["Aosp", "Java", "Xml", "C++", "Make"],
     link: "https://github.com/AospExtended",
     image: "https://github.com/AospExtended.png"
+  },
+  {
+    name: "LoJack",
+    description: "LoJack helps keep you and your loved ones safe behind the wheel. Get speed, low battery, and GeoFence entry / exit alerts, all from the convenience of your phone. Find and recover your car using real-time GPS tracking.",
+    techStack: ["Kotlin", "Hilt", "Room", "Maps SDK", "Retrofit", "Gson"],
+    link: "https://play.google.com/store/apps/details?id=com.spireon.kahu&hl=en&gl=US",
+    image: "/lojack.webp"
+  },
+  {
+    name: "GoldStar",
+    description: "GoldStar goes beyond your typical GPS tracking system by offering a powerful collateral management solution featuring an intuitive, user-friendly interface that puts all your tracking data at just a click away.",
+    techStack: ["Kotlin", "Hilt", "Room", "Maps SDK", "Retrofit", "Gson"],
+    link: "https://play.google.com/store/apps/details?id=com.spireon.android.gsdealer",
+    image: "/goldstar.webp"
+  },
+  {
+    name: "Periscope",
+    description: "For fleet managers who need fleet visibility on-the-go, use FleetLocate Periscope, the mobile companion to FleetLocate by Spireon. Be the first to know where your drivers and vehicles are at all times. Understand when your drivers are speeding or moving assets without authorization.",
+    techStack: ["Kotlin", "Hilt", "Room", "Maps SDK", "Retrofit", "Gson"],
+    link: "https://play.google.com/store/apps/details?id=com.spireon.fleet",
+    image: "/periscope.webp"
   },
 
 ];
