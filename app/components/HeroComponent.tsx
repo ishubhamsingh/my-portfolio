@@ -29,7 +29,7 @@ export default function HeroComponent() {
   return (
     <section className="flex flex-row justify-center items-center gap-16 py-24 px-8 max-sm:py-8 w-full max-sm:flex-col">
       <div className="hidden flex-row m-auto items-center max-sm:flex">
-      <Avatar isBordered src={"/shubham-singh-dp-1.png"} className="w-[200px] h-[200px]"/>
+      <Avatar isBordered src={"/images/shubham-singh-dp-1.png"} className="w-[200px] h-[200px]"/>
       </div>
       <div className="flex flex-col gap-4 items-start">
         <p className="font-regular text-6xl uppercase text-foreground-500">
@@ -60,7 +60,7 @@ export default function HeroComponent() {
         </div>
       </div>
       <div className="px-8 flex max-w-fit flex-row items-center max-sm:hidden">
-        <Avatar isBordered src={"/shubham-singh-dp-1.png"} className="w-[200px] h-[200px]"/>
+        <Avatar isBordered src={"/images/shubham-singh-dp-1.png"} className="w-[200px] h-[200px]"/>
       </div>
     </section>
   );

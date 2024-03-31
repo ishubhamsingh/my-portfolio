@@ -40,11 +40,11 @@ export default function AboutComponent() {
           I am a computer science engineering graduate, with around 8 years of
           working experience.
         </p>
-        <p className="text-2xl font-medium text-foreground">
+        <p className="text-2xl font-medium text-foreground text-start">
           I completed my graduation in 2016 from Visvesvaraya Technological
           University.
         </p>
-        <p className="text-2xl font-medium text-foreground">
+        <p className="text-2xl font-medium text-foreground text-start">
         Currently working as a Senior Software Engineer (Android)
           at{" "}
           {

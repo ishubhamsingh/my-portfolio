@@ -33,8 +33,8 @@ export default function NavbarComponent() {
       href: "/blogs",
     },
     {
-      title: "About",
-      href: "/about",
+      title: "Resume",
+      href: "/resume",
     },
   ];
   return (
@@ -50,7 +50,7 @@ export default function NavbarComponent() {
           className="sm:hidden"
         />
         <NavbarBrand className="gap-4 max-w-fit">
-          <Avatar isBordered src="/shubham-singh-dp-1.png" size="md" />
+          <Avatar isBordered src="/images/shubham-singh-dp-1.png" size="md" />
           <p className="font-bold text-inherit uppercase">ishubhamsingh</p>
         </NavbarBrand>
       </NavbarContent>
