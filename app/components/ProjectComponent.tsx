@@ -59,7 +59,7 @@ const projects = [
 export default function ProjectComponent() {
   return (
     <section className="flex flex-col gap-8 p-8 w-full justify-center items-center">
-       <p className="text-4xl font-medium my-8">Projects</p>
+       <p className="text-4xl font-bold my-8">Projects</p>
 
       <div className="grid grid-cols-2 gap-8 max-sm:grid-cols-1">
         {projects.map((project, index) => (

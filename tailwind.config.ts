@@ -3,10 +3,11 @@ import { nextui } from "@nextui-org/react"
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx,json}',
+    './components/**/*.{js,ts,jsx,tsx,mdx,json}',
+    './app/**/*.{js,ts,jsx,tsx,mdx,json}',
+    './lib/**/*.{js,ts,jsx,tsx,mdx,json}',
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx,json}",
   ],
   theme: {
     extend: {
