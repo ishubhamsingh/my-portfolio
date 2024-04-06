@@ -31,8 +31,6 @@ type PostData = {
 
 export default async function Post({params}: Props) {
     const postData: PostData = await getPostData(params.id)
-    let cssAppliedContent = applyDefaultCss(postData.contentHtml)
-    console.log(cssAppliedContent)
     return (
       <section className="flex min-h-screen p-8 w-full items-start flex-col justify-start">
           {/* Post Title */}
@@ -45,15 +43,8 @@ export default async function Post({params}: Props) {
           {/* Post Content */}
           <div
             className={'flex flex-col text-foreground p-8 w-full items-start justify-start'}
-            dangerouslySetInnerHTML={{ __html: cssAppliedContent }}
+            dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
           />
         </section>
       )
-}
-
-function applyDefaultCss(content: string) {
-  let result = content.replace("<p>", "<p class='default'>")
-  result = result.replace("<ul>","<ul class='default'>")
-
-  return result
 }
