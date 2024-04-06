@@ -1,7 +1,6 @@
 'use client'
 
 import BlogPostCardComponent from '../components/BlogPostCardComponent';
-import { getAllPosts, getAllPostsByTag } from './api/route'
 import { useEffect, useState } from 'react';
 import {Input} from "@nextui-org/react";
 import { FiSearch } from "react-icons/fi"
@@ -27,12 +26,7 @@ type PostData = {
   };
 
   async function fetchData(query: string) {
-    let response
-    if(query == "") {
-       response = await getAllPosts();
-    } else {
-       response = await getAllPostsByTag(query); 
-    }
+    let response = await fetch(`/blogs/api/posts?query=${query}`)
     const allPostsData: Posts = await response.json()
     return allPostsData
 }  
