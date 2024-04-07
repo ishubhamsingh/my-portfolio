@@ -25,7 +25,8 @@ type PostData = {
     published: boolean;
   };
 
-  async function fetchData(query: string) {
+
+async function fetchData(query: string) {
     let response = await fetch(`/blogs/api/posts?query=${query}`)
     const allPostsData: Posts = await response.json()
     return allPostsData
@@ -60,7 +61,14 @@ export default function BlogPage() {
                 <p className='text-xl font-medium'>No results found</p>
             </div>}
            {data.map((post: PostData) => (
-            BlogPostCardComponent(post)
+            <BlogPostCardComponent 
+              key = {post.id}
+              id = {post.id}
+              title = {post.title}
+              description = {post.description}
+              headerImageUrl = {post.headerImage}
+              date = {post.date}
+              />
           ))}
         </div> 
         </section>

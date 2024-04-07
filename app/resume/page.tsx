@@ -1,11 +1,17 @@
 'use client'
 
-import { Button, Image } from "@nextui-org/react"
-import { FiDownload } from "react-icons/fi"
+import { Button, Image } from "@nextui-org/react";
+import { FiDownload } from "react-icons/fi";
+
+async function fetchResumeData() {
+    let response = await fetch(`/resume/api/getResumeContent`)
+    const resumeData: string = await response.json()
+    return resumeData;
+} 
 
 export default function AboutPage() {
     return (
-        <section className="flex min-h-screen flex-col gap-8 p-8 w-full justify-center items-center">
+        <section className="flex min-h-screen flex-col gap-8 p-8 w-full items-center">
          <div className="flex flex-row w-4/6 max-sm:w-full m-8 justify-between">
          <p className="text-4xl font-bold">Resume</p>
          <Button

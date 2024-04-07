@@ -26,6 +26,7 @@ type PostData = {
   
     return {
       title: postData.title,
+      description: postData.description
     }
   }
 
