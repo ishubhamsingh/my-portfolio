@@ -8,6 +8,7 @@ import parse from 'remark-parse';
 import remark2rehype from "remark-rehype";   
 import html from 'rehype-stringify';
 import addClasses from 'rehype-class-names';
+import remarkGfm from 'remark-gfm'
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -34,6 +35,8 @@ export async function getSortedPostsData() {
         headerImage?: string,
         categories: string[], 
         date: string,
+        authorName: string,
+        authorAvatar: string,
         published: boolean
       }),
     };
@@ -76,28 +79,39 @@ export async function getPostData(id: string) {
   const matterResult = matter(fileContents)
 
   // Use remark to convert markdown into HTML string
-  const processedContent = unified()
-  .use(parse)
-  .use(remark2rehype)
-  .use(addClasses, {
-    'h1,h2,h3,p,a,ul,ol': 'default',
-    a: 'text-primary',
-  })
-  .use(html)
-  .processSync(matterResult.content)
+  // const processedContent = await unified()
+  // .use(parse)
+  // .use(remarkGfm)
+  // .use(remark2rehype)
+  // .use(addClasses, {
+  //   'h1,h2,h3,p,a,ul,ol,pre,blockquote,table,code': 'default',
+  //   a: 'text-primary text-lg',
+  //   p: 'text-lg',
+  //   pre: 'text-md font-mono',
+  //   code: 'text-md font-mono text-wrap',
+  //   li: 'text-lg',
+  //   blockquote: 'text-md border-l-8 border-primary pl-8 pr-16 justify-start text-start',
+  //   table: 'flex w-fit my-8 border-collapse border border-foreground/30',
+  //   th: 'text-lg font-bold p-4 border border-foreground/30 bg-zinc-100 dark:bg-zinc-900',
+  //   td: 'text-start justify-start text-md font-normal p-2 border border-foreground/30 bg-zinc-50 dark:bg-zinc-800'
+  // })
+  // .use(html)
+  // .process(matterResult.content)
   
-  const contentHtml = processedContent.toString()
+  const contentMd = matterResult.content.toString()
 
   // Combine the data with the id
   return {
     id,
-    contentHtml,
+    contentMd,
     ...(matterResult.data as {
       title: string,
       description: string,
       headerImage?: string,
       categories: string[], 
       date: string,
+      authorName: string,
+      authorAvatar: string,
       published: boolean
     }),
   }

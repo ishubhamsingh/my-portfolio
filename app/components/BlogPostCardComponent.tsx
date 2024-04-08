@@ -2,12 +2,12 @@
 
 import {
   Card,
+  CardBody,
   CardFooter,
-  Link,
   Image,
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import Date  from "./Date"
+import PostAvatarDateComponent from "./PostAvatarDateComponent";
 
 interface Props {
   key: string,
@@ -15,7 +15,9 @@ interface Props {
   title: string,
   description: string,
   headerImageUrl?: string,
-  date: string
+  date: string,
+  authorName: string,
+  authorAvatar: string
 }
 
 const BlogPostCardComponent = (props: Props) => {
@@ -28,26 +30,31 @@ const BlogPostCardComponent = (props: Props) => {
       radius={"lg"}
       isHoverable
       isPressable
-      className="border-none max-w-unit-8xl max-h-unit-5xl"
+      className="h-fit w-full"
       onPress={() => router.push(`/post/${props.id}`)}
       >
-      <Image
+        <CardBody className=" flex flex-col gap-4 overflow-visible p-0">
+        <Image
         removeWrapper
         alt={props.id}
         src={props.headerImageUrl}
-        className="z-0 w-full h-full object-cover"
+        className="w-full h-40 object-cover"
         loading={"eager"}
+        radius="none"
+        shadow="lg"
       />
-
-      <CardFooter className="absolute flex-col items-start bg-black/40 bottom-0 z-10 border-none">
-        <p className="text-tiny font-medium text-primary mb-1">
-          <Date dateString={props.date} />
-        </p>
-        <h4 className="text-white/90 font-medium text-lg truncate">{props.title}</h4>
-        <p className="text-sm font-normal text-white/60 truncate">
+      <div className="mx-4 mb-4">
+      <PostAvatarDateComponent 
+        authorAvatar={props.authorAvatar}
+        authorName={props.authorName}
+        date={props.date}
+        />
+        <h4 className="text-foreground/90 font-bold text-lg truncate mt-2">{props.title}</h4>
+        <p className="text-md font-medium text-foreground/60 truncate">
           {props.description}
         </p>
-      </CardFooter>
+      </div>
+        </CardBody>
     </Card>
   );
 }

@@ -1,12 +1,16 @@
 ---
 title: 'Hello World'
 description: "Let's go"
-headerImage: "https://unsplash.com/photos/kpmwxeDoNR4/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTF8fGhlbGxvJTIwd29ybGR8ZW58MHx8fHwxNzExOTM4NTYxfDA&force=true&w=640"
+headerImage: "https://images.pexels.com/photos/954599/pexels-photo-954599.jpeg?cs=srgb&dl=pexels-maria-tyutina-954599.jpg&fm=jpg&w=1280&h=853"
 categories:
     - personal
     - shitpost
 date: '2024-04-01'
+authorName: "Shubham Singh"
+authorAvatar: "/images/shubham-singh-dp.png"
 published: true
 ---
 
-`This is the beginning of something huge.`
+`Hello World!`
+
+I'll be posting some blogs here occasionaly.

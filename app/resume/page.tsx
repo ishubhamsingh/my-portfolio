@@ -3,12 +3,6 @@
 import { Button, Image } from "@nextui-org/react";
 import { FiDownload } from "react-icons/fi";
 
-async function fetchResumeData() {
-    let response = await fetch(`/resume/api/getResumeContent`)
-    const resumeData: string = await response.json()
-    return resumeData;
-} 
-
 export default function AboutPage() {
     return (
         <section className="flex min-h-screen flex-col gap-8 p-8 w-full items-center">

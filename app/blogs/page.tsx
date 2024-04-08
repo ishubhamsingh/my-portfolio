@@ -2,18 +2,10 @@
 
 import BlogPostCardComponent from '../components/BlogPostCardComponent';
 import { useEffect, useState } from 'react';
-import {Input} from "@nextui-org/react";
+import {Input, CircularProgress} from "@nextui-org/react";
 import { FiSearch } from "react-icons/fi"
 
-type Posts = {
-    id: string,
-    title: string,
-    description: string,
-    headerImage?: string,
-    categories: string[], 
-    date: string,
-    published: boolean
-}[]
+type Posts = PostData[]
 
 type PostData = {
     id: string;
@@ -22,6 +14,8 @@ type PostData = {
     headerImage?: string;
     categories: string[];
     date: string;
+    authorName: string;
+    authorAvatar: string;
     published: boolean;
   };
 
@@ -35,14 +29,22 @@ async function fetchData(query: string) {
 export default function BlogPage() {
     const [data, setData] = useState([] as Posts)
     const [searchQuery, setSearchQuery] = useState("" as string)
+    const [isLoading, setLoading] = useState(false as boolean)
     
     useEffect(() => {
-        fetchData(searchQuery).then((data: Posts) => {  setData(data) }).catch((e) => {console.error(e)})
+        setLoading(true)
+        fetchData(searchQuery).then((data: Posts) => {  
+            setData(data) 
+        }).catch((e) => {
+            console.error(e)
+        }).then(() => {
+            setLoading(false)
+        })
     }, [searchQuery]);
 
     return (
-       <section className="flex p-8 items-center flex-col min-h-screen">
-        <div className='w-full flex flex-col gap-8 mb-24 items-center justify-start md:flex-row md:justify-between sm:flex-row sm:justify-between'>
+       <section className="flex p-8 mx-auto flex-col min-h-screen">
+        <div className='flex flex-col gap-8 mb-24 items-center justify-start md:flex-row md:justify-between sm:flex-row sm:justify-between'>
         <p className="text-4xl font-bold text-start">Blogs</p>
          <Input 
          type={"text"}
@@ -55,11 +57,17 @@ export default function BlogPage() {
          isClearable
          className='max-w-unit-6xl'/> 
         </div>
-       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
+       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8'>
           {searchQuery !== "" && data.length === 0 && 
-            <div className="flex w-full col-span-1 md:col-span-3 sm:col-span-2 items-start justify-start sm:items-center sm:justify-center md:items-center md:justify-center">
+            <div className="flex w-full col-span-1 lg:col-span-3 md:col-span-2 items-center justify-center">
                 <p className='text-xl font-medium'>No results found</p>
-            </div>}
+            </div>
+            }
+            {isLoading && 
+             <div className="flex w-full col-span-1 lg:col-span-3 md:col-span-2 items-center justify-center">
+             <CircularProgress size="md" aria-label="Loading..."/>
+             </div>
+            }
            {data.map((post: PostData) => (
             <BlogPostCardComponent 
               key = {post.id}
@@ -68,6 +76,8 @@ export default function BlogPage() {
               description = {post.description}
               headerImageUrl = {post.headerImage}
               date = {post.date}
+              authorName={post.authorName}
+              authorAvatar={post.authorAvatar}
               />
           ))}
         </div> 
