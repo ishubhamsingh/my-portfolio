@@ -1,4 +1,3 @@
-import { getPostData } from '@/lib/posts'
 import { Image, Chip, Code, Divider } from '@nextui-org/react'
 import "./blog.css"
 import ReactMarkdown from 'react-markdown'
@@ -31,9 +30,14 @@ type PostData = {
     published: boolean;
   };
 
-  export async function generateMetadata({ params }: Props) {
-    const postData: PostData = await getPostData(params.id)
+  async function fetchPostData(id: string) {
+    let response = await fetch(`${BASE_URL}/post/api/getPostById?id=${id}`)
+    const postData: PostData = await response.json()
+    return postData
+} 
 
+  export async function generateMetadata({ params }: Props) {
+    const postData = await fetchPostData(params.id)
     return {
       metadataBase: new URL(BASE_URL),
       title: postData.title,
@@ -66,7 +70,7 @@ type PostData = {
   }
 
 export default async function Post({params}: Props) {
-    const postData: PostData = await getPostData(params.id)
+  const postData = await fetchPostData(params.id)
     return (
       <section className="flex flex-col min-h-screen w-full p-8 items-center">
         <div className='flex flex-col w-full md:w-5/6 lg:w-3/6 '>
@@ -98,7 +102,7 @@ export default async function Post({params}: Props) {
           radius={'lg'}
           shadow={'lg'}
           className={'w-full h-64 md:h-80 lg:h-96 object-cover'}
-          loading={'eager'}
+          loading={'lazy'}
           />
 
           <ReactMarkdown 

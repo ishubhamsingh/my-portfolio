@@ -19,14 +19,14 @@ export default function AboutPage() {
             <Image
             src="./images/shubham-singh-resume-page1.jpg"
             alt="resume page 1"
-            loading={"eager"}
+            loading={"lazy"}
             className={"w-4/6 h-auto m-auto max-sm:w-full"}
             />
 
            <Image 
             src="./images/shubham-singh-resume-page2.jpg"
             alt="resume page 2"
-            loading={"eager"}
+            loading={"lazy"}
             className={"w-4/6 h-auto m-auto max-sm:w-full"}
             />
         </div>

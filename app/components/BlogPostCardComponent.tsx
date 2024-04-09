@@ -38,7 +38,7 @@ const BlogPostCardComponent = (props: Props) => {
         alt={props.id}
         src={props.headerImageUrl}
         className="w-full h-40 object-cover"
-        loading={"eager"}
+        loading={"lazy"}
         radius="none"
         shadow="md"
       />

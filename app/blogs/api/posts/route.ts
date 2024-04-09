@@ -1,4 +1,4 @@
-import { getSortedPostsData, getPostsByTag } from '../../../../lib/posts';
+import { getSortedPostsData, getPostsByTag } from '@/lib/posts';
 import { NextRequest, NextResponse } from 'next/server';
 
 type Posts = {
