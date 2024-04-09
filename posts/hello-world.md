@@ -13,4 +13,4 @@ published: true
 
 `Hello World!`
 
-I'll be posting some blogs here occasionaly.
+I'll be posting some blogs here occasionally.

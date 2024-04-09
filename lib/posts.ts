@@ -56,7 +56,7 @@ export async function getSortedPostsData() {
 export async function getPostsByTag(query: string) {
    const allPosts = await getSortedPostsData()
 
-   return allPosts.filter((post) => post.categories.includes(query.toLowerCase()) || post.title.toLowerCase().includes(query.toLowerCase()) || post.description.toLowerCase().includes(query.toLowerCase()))
+   return allPosts.filter((post) => post.categories.filter((i) => i.includes(query.toLowerCase())).length > 0 || post.title.toLowerCase().includes(query.toLowerCase()) || post.description.toLowerCase().includes(query.toLowerCase()))
 }
 
 export async function getAllPostIds() {

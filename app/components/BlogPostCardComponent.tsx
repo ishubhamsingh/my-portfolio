@@ -3,7 +3,6 @@
 import {
   Card,
   CardBody,
-  CardFooter,
   Image,
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
@@ -30,7 +29,7 @@ const BlogPostCardComponent = (props: Props) => {
       radius={"lg"}
       isHoverable
       isPressable
-      className="h-fit w-full"
+      className="h-fit w-full transition-all duration-300 ease-in-out hover:scale-105"
       onPress={() => router.push(`/post/${props.id}`)}
       >
         <CardBody className=" flex flex-col gap-4 overflow-visible p-0">
@@ -41,7 +40,7 @@ const BlogPostCardComponent = (props: Props) => {
         className="w-full h-40 object-cover"
         loading={"eager"}
         radius="none"
-        shadow="lg"
+        shadow="md"
       />
       <div className="mx-4 mb-4">
       <PostAvatarDateComponent 

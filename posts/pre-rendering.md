@@ -8,7 +8,7 @@ categories:
 date: '2024-04-02'
 authorName: "Shubham Singh"
 authorAvatar: "/images/shubham-singh-dp.png"
-published: true
+published: false
 ---
 
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
