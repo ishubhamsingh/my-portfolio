@@ -5,12 +5,23 @@ import './globals.css'
 import Navbar from './components/NavbarComponent'
 import Footer from './components/FooterComponent'
 import { Providers } from './providers'
+import { BASE_URL } from './constants';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Shubham Singh',
-  description: 'Personal portfolio & blog of Shubham Singh',
+  metadataBase: new URL(BASE_URL),
+  title: 'Shubham Singh - Software Engineer',
+  description: 'Personal portfolio & blog of Shubham Singh - Software Engineer | Android | Kotlin | ReactJs',
+  creator: 'Shubham Singh',
+  keywords: ['shubham singh', 'ishubhamsingh', "kotlin", "india", "android", "bengaluru", "react js", "aospextended"],
+  openGraph: {
+    type: 'profile',
+    images: [{url: '/images/shubham-singh-social-media-banner.png'}]
+  },
+  twitter: {
+    images: '/images/shubham-singh-social-media-banner.png'
+  }
 }
 
 export default function RootLayout({

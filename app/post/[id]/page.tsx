@@ -1,6 +1,5 @@
 import { getPostData } from '@/lib/posts'
-import Date from '@/app/components/Date'
-import { Image, Chip, Code, Avatar, Divider } from '@nextui-org/react'
+import { Image, Chip, Code, Divider } from '@nextui-org/react'
 import "./blog.css"
 import ReactMarkdown from 'react-markdown'
 import addClasses from 'rehype-class-names';
@@ -9,6 +8,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { FiHash } from 'react-icons/fi'
 import PostAvatarDateComponent from '@/app/components/PostAvatarDateComponent'
+import { BASE_URL } from '@/app/constants';
 
 type Params = {
     id: string
@@ -33,10 +33,22 @@ type PostData = {
 
   export async function generateMetadata({ params }: Props) {
     const postData: PostData = await getPostData(params.id)
-  
+
     return {
+      metadataBase: new URL(BASE_URL),
       title: postData.title,
-      description: postData.description
+      description: postData.description,
+      images: postData.headerImage,
+      creator: postData.authorName,
+      authors: postData.authorName,
+      keywords: postData.categories,
+      openGraph: {
+        type: 'article',
+        images: [{url: postData.headerImage}]
+      },
+      twitter: {
+        images: postData.headerImage
+      }
     }
   }
 
