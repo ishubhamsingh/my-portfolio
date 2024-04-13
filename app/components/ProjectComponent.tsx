@@ -69,7 +69,7 @@ export default function ProjectComponent() {
             radius={"lg"}
             isHoverable
             isPressable
-            className="p-unit-md max-w-unit-9xl min-w-unit-lg border-none transition hover:-translate-x-1 hover:-translate-y-1"
+            className="p-unit-md max-w-unit-9xl border dark:border-zinc-700 bg-gradient-to-tr from-zinc-200 to-white dark:bg-gradient-to-tr dark:from-black dark:to-zinc-900 min-w-unit-lg transition hover:-translate-x-1 hover:-translate-y-1"
             onPress={() => window.open(project.link, "_blank")}
           >
             <CardHeader className="flex flex-row gap-4">
