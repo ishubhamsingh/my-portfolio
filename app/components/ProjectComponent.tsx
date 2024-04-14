@@ -9,6 +9,7 @@ import {
   Avatar,
   Link
 } from "@nextui-org/react";
+import Image from "next/image";
 
 const projects = [
   {
@@ -69,11 +70,18 @@ export default function ProjectComponent() {
             radius={"lg"}
             isHoverable
             isPressable
-            className="p-unit-md max-w-unit-9xl border dark:border-zinc-700 bg-gradient-to-tr from-zinc-200 to-white dark:bg-gradient-to-tr dark:from-black dark:to-zinc-900 min-w-unit-lg transition hover:-translate-x-1 hover:-translate-y-1"
+            className="p-unit-md max-w-unit-9xl border dark:border-zinc-700 bg-gradient-to-tr from-neutral-200 to-neutral-50 dark:bg-gradient-to-tr dark:from-black dark:to-zinc-900 min-w-unit-lg transition hover:-translate-x-1 hover:-translate-y-1"
             onPress={() => window.open(project.link, "_blank")}
           >
             <CardHeader className="flex flex-row gap-4">
-                <Avatar src={project.image} size="md"/>
+                <Image 
+                  src={project.image}
+                  alt={project.name}
+                  height={40}
+                  width={40}
+                  className="w-[40px] h-[40px] rounded-full"
+                  placeholder={"empty"}
+                  />
               <p className="text-2xl font-medium">{project.name}</p>
             </CardHeader>
             <CardBody>

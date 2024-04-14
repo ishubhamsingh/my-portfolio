@@ -1,16 +1,14 @@
 import * as React from 'react'
-import type { Metadata } from 'next'
 import { Inter } from "next/font/google";
 import './globals.css'
 import Navbar from './components/NavbarComponent'
 import Footer from './components/FooterComponent'
 import { Providers } from './providers'
-import { BASE_URL } from './constants';
 import { WebVitals } from './components/web-vitals';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from 'next'
+import { BASE_URL } from './constants';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -26,6 +24,9 @@ export const metadata: Metadata = {
     images: '/images/shubham-singh-social-media-banner.png'
   }
 }
+
+const inter = Inter({ subsets: ["latin"] });
+
 
 export default function RootLayout({
   children,

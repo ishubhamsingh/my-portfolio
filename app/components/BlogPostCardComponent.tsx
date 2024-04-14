@@ -30,7 +30,7 @@ const BlogPostCardComponent = (props: Props) => {
       isHoverable
       isPressable
       className="h-fit w-full transition-all duration-300 ease-in-out hover:scale-105"
-      onPress={() => router.push(`/post/${props.id}`)}
+      onPress={() => router.push(`/blogs/post/${props.id}`)}
       >
         <CardBody className=" flex flex-col gap-4 overflow-visible p-0">
         <Image

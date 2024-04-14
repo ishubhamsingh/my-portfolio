@@ -1,15 +1,6 @@
 import { getSortedPostsData, getPostsByTag } from '@/lib/posts';
 import { NextRequest, NextResponse } from 'next/server';
-
-type Posts = {
-    id: string,
-    title: string,
-    description: string,
-    headerImage?: string,
-    categories: string[], 
-    date: string,
-    published: boolean
-}[]
+import { Posts } from '@/app/types';
 
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams

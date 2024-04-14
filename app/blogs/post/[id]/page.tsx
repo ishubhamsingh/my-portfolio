@@ -8,6 +8,7 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { FiHash } from 'react-icons/fi'
 import PostAvatarDateComponent from '@/app/components/PostAvatarDateComponent'
 import { BASE_URL } from '@/app/constants';
+import { Post } from '@/app/types';
 
 type Params = {
     id: string
@@ -17,22 +18,9 @@ type Props = {
     params: Params
 }
 
-type PostData = {
-    id: string;
-    contentMd: string,
-    title: string;
-    description: string;
-    headerImage?: string;
-    categories: string[];
-    date: string;
-    authorName: string;
-    authorAvatar: string;
-    published: boolean;
-  };
-
   async function fetchPostData(id: string) {
-    let response = await fetch(`${BASE_URL}/post/api/getPostById?id=${id}`)
-    const postData: PostData = await response.json()
+    let response = await fetch(`${BASE_URL}/blogs/post/api/getPostById?id=${id}`)
+    const postData: Post = await response.json()
     return postData
 } 
 
@@ -69,7 +57,7 @@ type PostData = {
     td: 'text-wrap text-start justify-start text-md font-normal p-2 border border-foreground/30 bg-zinc-50 dark:bg-zinc-800'
   }
 
-export default async function Post({params}: Props) {
+export default async function PostPage({params}: Props) {
   const postData = await fetchPostData(params.id)
     return (
       <section className="flex flex-col min-h-screen w-full p-8 items-center">

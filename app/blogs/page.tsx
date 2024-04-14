@@ -4,20 +4,7 @@ import BlogPostCardComponent from '../components/BlogPostCardComponent';
 import { useEffect, useState } from 'react';
 import {Input, CircularProgress} from "@nextui-org/react";
 import { FiSearch } from "react-icons/fi"
-
-type Posts = PostData[]
-
-type PostData = {
-    id: string;
-    title: string;
-    description: string;
-    headerImage?: string;
-    categories: string[];
-    date: string;
-    authorName: string;
-    authorAvatar: string;
-    published: boolean;
-  };
+import { Post, Posts } from "@/app/types"
 
 
 async function fetchData(query: string) {
@@ -69,7 +56,7 @@ export default function BlogPage() {
              <CircularProgress size="md" aria-label="Loading..."/>
              </div>
             }
-           {data.map((post: PostData) => (
+           {data.map((post: Post) => (
             <BlogPostCardComponent 
               key = {post.id}
               id = {post.id}

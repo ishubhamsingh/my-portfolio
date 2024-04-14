@@ -14,6 +14,7 @@ import {
 import ThemeSwitch from "./ThemeSwitch";
 import { usePathname } from "next/navigation";
 import { Avatar } from "@nextui-org/react";
+import { AvatarComponent } from "./HeroComponent";
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -50,7 +51,7 @@ export default function NavbarComponent() {
           className="sm:hidden"
         />
         <NavbarBrand className="gap-4 max-w-fit">
-          <Avatar isBordered src="/images/shubham-singh-dp-1.png" size="md" />
+          <AvatarComponent width={40} height={40} />
           <p className="font-bold text-inherit uppercase">ishubhamsingh</p>
         </NavbarBrand>
       </NavbarContent>

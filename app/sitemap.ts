@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             allPosts.map((post) => {
                 sitemap.push(
                     {
-                        url: `${BASE_URL}/post/${post.id}`,
+                        url: `${BASE_URL}/blogs/post/${post.id}`,
                         lastModified: new Date(),
                         changeFrequency: 'weekly',
                         priority: 0.9
