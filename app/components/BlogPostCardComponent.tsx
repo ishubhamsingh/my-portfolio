@@ -2,11 +2,11 @@
 
 import {
   Card,
-  CardBody,
-  Image,
+  CardBody
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import PostAvatarDateComponent from "./PostAvatarDateComponent";
+import Image from "next/image";
 
 interface Props {
   key: string,
@@ -33,15 +33,17 @@ const BlogPostCardComponent = (props: Props) => {
       onPress={() => router.push(`/blogs/post/${props.id}`)}
       >
         <CardBody className=" flex flex-col gap-4 overflow-visible p-0">
-        <Image
-        removeWrapper
-        alt={props.id}
-        src={props.headerImageUrl}
-        className="w-full h-40 object-cover"
-        loading={"lazy"}
-        radius="none"
-        shadow="md"
-      />
+        {props.headerImageUrl !== undefined && 
+                <Image
+                alt={props.id}
+                src={props.headerImageUrl}
+                className="w-full h-40 object-cover shadow-medium shadow-black/5"
+                width={0}
+                height={0}
+                sizes="100vw"
+                placeholder={"empty"}
+              />
+        }  
       <div className="mx-4 mb-4">
       <PostAvatarDateComponent 
         authorAvatar={props.authorAvatar}

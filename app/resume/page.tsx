@@ -27,13 +27,13 @@ export default function AboutPage() {
           src={resumePage1}
           alt="resume page 1"
           placeholder={"blur"}
-          className={"w-4/6 h-auto m-auto max-sm:w-full rounded-3xl"}
+          className={"w-4/6 h-auto m-auto max-sm:w-full rounded-xl md:rounded-2xl lg:rounded-3xl"}
         />
         <NextImage
           src={resumePage2}
           alt="resume page 1"
           placeholder={"blur"}
-          className={"w-4/6 h-auto m-auto max-sm:w-full rounded-3xl"}
+          className={"w-4/6 h-auto m-auto max-sm:w-full rounded-xl md:rounded-2xl lg:rounded-b-3xl"}
         />
       </div>
     </section>

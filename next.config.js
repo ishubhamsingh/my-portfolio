@@ -10,6 +10,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "github.com",
       },
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+      },
+      {
+        protocol: "https",
+        hostname: "unsplash.com"
+      }
     ],
   },
   webpack: (config) => {

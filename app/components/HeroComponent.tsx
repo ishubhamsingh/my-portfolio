@@ -1,8 +1,8 @@
-import { Avatar } from "@nextui-org/react";
 import { SiJetpackcompose  } from "react-icons/si";
 import { TbBrandAndroid, TbBrandKotlin, TbBrandReact, TbBrandGithub  } from "react-icons/tb"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import avatarImage from "@/public/images/shubham-singh-dp-1.png"
+import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 
 const skills = [
   {
@@ -31,7 +31,7 @@ export default function HeroComponent() {
   return (
     <section className="flex flex-row justify-center items-center gap-16 py-24 px-8 max-sm:py-8 w-full max-sm:flex-col">
       <div className="hidden flex-row m-auto items-center max-sm:flex">
-      <AvatarComponent height={200} width={200} />
+      <AvatarComponent height={200} width={200} src={avatarImage} placeholder="blur"/>
       </div>
       <div className="flex flex-col gap-4 items-start">
         <p className="font-regular text-6xl uppercase text-foreground-500">
@@ -62,22 +62,22 @@ export default function HeroComponent() {
         </div>
       </div>
       <div className="px-8 flex max-w-fit flex-row items-center max-sm:hidden">
-        <AvatarComponent height={200} width={200} />
+        <AvatarComponent height={200} width={200} src={avatarImage} placeholder="blur"/>
       </div>
     </section>
   );
 }
 
-export function AvatarComponent(props: {width: number, height: number}) {
+export function AvatarComponent(props: {width: number, height: number, src: StaticImageData | string, placeholder: PlaceholderValue}) {
   return (
     <div className={`flex flex-shrink-0 flex-grow-0 w-[${props.width}px] h-[${props.height}px] rounded-full ring-2 ring-offset-2 ring-default-300 ring-offset-background`}>
       <Image 
-      className={`w-[${props.width}px] h-[${props.height}px] rounded-full`} 
-      src={avatarImage} 
+      className={`w-[${props.width}px] h-[${props.height}px] rounded-full object-cover aspect-square object-center`} 
+      src={props.src} 
       alt="avatar" 
       width={props.width}
       height={props.height}
-      placeholder={"blur"} />
+      placeholder={props.placeholder} />
     </div>
   )
 }

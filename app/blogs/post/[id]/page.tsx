@@ -1,4 +1,4 @@
-import { Image, Chip, Code, Divider } from '@nextui-org/react'
+import { Chip, Code, Divider } from '@nextui-org/react'
 import "./blog.css"
 import ReactMarkdown from 'react-markdown'
 import addClasses from 'rehype-class-names';
@@ -9,6 +9,7 @@ import { FiHash } from 'react-icons/fi'
 import PostAvatarDateComponent from '@/app/components/PostAvatarDateComponent'
 import { BASE_URL } from '@/app/constants';
 import { Post } from '@/app/types';
+import Image from "next/image";
 
 type Params = {
     id: string
@@ -83,15 +84,17 @@ export default async function PostPage({params}: Props) {
           ))}
           </div>
         <Divider className='mb-4' />
+        {postData.headerImage !== undefined && 
         <Image
-          removeWrapper 
           src={postData.headerImage}
           alt={postData.id}
-          radius={'lg'}
-          shadow={'lg'}
-          className={'w-full h-64 md:h-80 lg:h-96 object-cover'}
+          className={'w-full h-64 md:h-80 lg:h-96 object-cover shadow-large rounded-large shadow-black/5'}
+          height={0}
+          width={0}
+          sizes="100vw"
           loading={'lazy'}
           />
+        }
 
           <ReactMarkdown 
           remarkPlugins={[remarkGfm]}
