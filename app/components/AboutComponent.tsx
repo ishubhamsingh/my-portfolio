@@ -2,6 +2,8 @@
 
 import { Link, Button } from "@nextui-org/react";
 import {SiGmail, SiGithub, SiLinkedin, SiX, SiTelegram} from "react-icons/si"
+import AboutImage from "/public/images/about.svg";
+import Image from "next/image";
 
 const contactLinks = [
     {
@@ -36,6 +38,14 @@ export default function AboutComponent() {
     <section className="flex flex-col justify-center items-center gap-8 p-8 w-full">
       <div className="flex flex-col gap-4 justify-center">
         <p className="text-4xl font-bold my-8 text-center">About</p>
+        <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
+          <Image
+            src={AboutImage}
+            className={"size-4/6 md:size-2/6"}
+            alt="about"
+            placeholder={"empty"}
+            />
+        <div className="flex flex-col gap-4 justify-center">  
         <p className="text-2xl font-medium text-foreground text-start">
           I am a computer science engineering graduate, with around 8 years of
           working experience.
@@ -57,6 +67,8 @@ export default function AboutComponent() {
           }
           .
         </p>
+        </div>
+        </div>
         <div className="flex flex-col gap-8 mt-8 w-full items-center">
         <div className="flex flex-row gap-8 items-center">
             {
