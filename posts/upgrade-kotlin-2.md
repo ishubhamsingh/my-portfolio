@@ -79,10 +79,10 @@ composeCompiler { enableStrongSkippingMode = true }
 
 The K2 compiler adds a new folder `.kotlin` to cache klibs, which we need not commit, hence we need to add it to `.gitignore`
 
-```gitignore
-// .gitignore
-
+```.gitignore
+...
 .kotlin
+...
 ```
 
 After doing the above changes our project is now ready to use the goodness of K2 compiler. For reference here is my commit for [K2 Migration](https://github.com/ishubhamsingh/Splashy/commit/2f4bdc1d75b6884419381cde3d5ce36431d74d5b) .
