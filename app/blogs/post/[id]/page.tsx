@@ -20,7 +20,7 @@ type Props = {
 }
 
   async function fetchPostData(id: string) {
-    let response = await fetch(`${BASE_URL}/blogs/post/api/getPostById?id=${id}`)
+    let response = await fetch(`${BASE_URL}/blogs/post/api/getPostById?id=${id}`, { next: { revalidate: 43200 } })
     const postData: Post = await response.json()
     return postData
 } 
