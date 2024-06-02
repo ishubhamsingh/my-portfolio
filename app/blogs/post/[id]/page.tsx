@@ -51,7 +51,7 @@ type Props = {
     p: 'text-lg',
     pre: 'text-md font-mono',
     code: 'text-md font-mono text-wrap',
-    li: 'text-lg',
+    li: 'text-lg text-wrap break-words',
     blockquote: 'text-md border-l-8 border-primary pl-8 pr-16 justify-start text-start',
     table: 'flex w-fit my-8 border-collapse border border-foreground/30',
     th: 'text-wrap text-lg font-bold p-4 border border-foreground/30 bg-zinc-100 dark:bg-zinc-900',
