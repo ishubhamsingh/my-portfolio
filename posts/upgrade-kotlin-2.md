@@ -79,7 +79,7 @@ composeCompiler { enableStrongSkippingMode = true }
 
 The K2 compiler adds a new folder `.kotlin` to cache klibs, which we need not commit, hence we need to add it to `.gitignore`
 
-```.gitignore
+```gitignore
 ...
 .kotlin
 ...
