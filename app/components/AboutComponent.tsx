@@ -60,9 +60,9 @@ export default function AboutComponent() {
           {
             <Link
               className={"text-primary text-2xl font-medium"}
-              href="https://www.spireon.com/"
+              href="https://www.jllt.com/"
             >
-              Spireon
+              JLLT
             </Link>
           }
           .
