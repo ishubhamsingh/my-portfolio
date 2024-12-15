@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next'
 import { BASE_URL } from './constants';
+import SnowfallComponent from './components/SnowfallComponent';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -37,6 +38,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
+        <SnowfallComponent />  
         <Navbar />
         <WebVitals />
         {children}
