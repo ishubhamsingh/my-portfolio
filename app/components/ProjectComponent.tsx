@@ -15,16 +15,9 @@ const projects = [
   {
     name: "Splashy",
     description: "An Unsplash based wallpaper app built with Compose Multiplatform and KMM for Android and iOS.",
-    techStack: ["Kotlin", "Kmm", "Ktor", "Compose", "Voyager", "Koin", "SQLDelight"],
+    techStack: ["Kotlin", "KMP", "Ktor", "Compose", "Voyager", "Koin", "SQLDelight"],
     link: "https://github.com/ishubhamsingh/Splashy",
     image: "https://raw.githubusercontent.com/ishubhamsingh/Splashy/main/assets/icon.png"
-  },
-  {
-    name: "Walldeck",
-    description: "A beautiful wallpaper app, designed in material design, contains beautiful, original wallpapers.",
-    techStack: ["Kotlin", "Compose", "Retrofit", "Gson", "Hilt", "Room"],
-    link: "https://play.google.com/store/apps/details?id=dev.ishubhamsingh.walldeck",
-    image: "/images/walldeck.webp"
   },
   {
     name: "AospExtended",
@@ -32,6 +25,13 @@ const projects = [
     techStack: ["Aosp", "Java", "Xml", "C++", "Make"],
     link: "https://github.com/AospExtended",
     image: "https://github.com/AospExtended.png"
+  },
+  {
+    name: "Omnitracs Mobile Manager",
+    description: "Omnitracs Mobile Manager is a mobile application that seamlessly integrates with your back-office Omnitracs web application and gives you the key information you need to manage your mobile resources while you’re on the go. You’ll have visibility into the day’s routes, orders, equipment and worker performance at your fingertips.",
+    techStack: ["Kotlin", "KMP", "Compose", "Ktor", "Hilt", "SQLDelight"],
+    link: "https://play.google.com/store/apps/details?id=com.roadnet.mobile.fleetview.android",
+    image: "/images/omm.webp"
   },
   {
     name: "LoJack",
@@ -53,8 +53,7 @@ const projects = [
     techStack: ["Kotlin", "Hilt", "Room", "Maps SDK", "Retrofit", "Gson"],
     link: "https://play.google.com/store/apps/details?id=com.spireon.fleet",
     image: "/images/periscope.webp"
-  },
-
+  }
 ];
 
 export default function ProjectComponent() {
