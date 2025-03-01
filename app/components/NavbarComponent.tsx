@@ -37,6 +37,10 @@ export default function NavbarComponent() {
       title: "Resume",
       href: "/resume",
     },
+    {
+      title: "Uses",
+      href: "/uses",
+    },
   ];
   return (
     <Navbar
