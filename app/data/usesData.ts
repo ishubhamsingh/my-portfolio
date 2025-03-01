@@ -1,11 +1,11 @@
 enum UsesTypes {
-  Computer = "Computers",
-  Mobile = "Mobile Devices",
-  Audio = "Audio Devices",
-  Peripheral = "Peripherals",
-  Entertainment = "Entertainment",
-  Utility = "Utilities",
-  Software = "Softwares",
+  Computer = "Computers 💻",
+  Mobile = "Mobile Devices 📱",
+  Audio = "Audio Devices 🎧",
+  Peripheral = "Peripherals ⌨️",
+  Entertainment = "Entertainment 🎮",
+  Utility = "Utilities 🛠️",
+  Software = "Softwares 💾",
 }
 
 enum UsesCategories {
