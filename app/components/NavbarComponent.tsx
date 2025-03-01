@@ -15,6 +15,7 @@ import ThemeSwitch from "./ThemeSwitch";
 import { usePathname } from "next/navigation";
 import { AvatarComponent } from "./HeroComponent";
 import avatarImage from "@/public/images/shubham-singh-dp-1.png"
+import { title } from "process";
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -36,6 +37,10 @@ export default function NavbarComponent() {
     {
       title: "Resume",
       href: "/resume",
+    },
+    {
+      title: "Uses",
+      href: "/uses",
     },
   ];
   return (
