@@ -17,7 +17,12 @@ export default function UsesPage() {
           <h3 className={"text-foreground/80 font-medium text-xl mb-4"}>
             This is a{" "}
             {
-              <Link href="https://uses.tech/" className="font-mono text-xl ">
+              <Link
+                href="https://uses.tech/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xl "
+              >
                 /uses
               </Link>
             }{" "}
@@ -47,7 +52,7 @@ export default function UsesPage() {
             <p className="text-4xl font-bold text-start">{type}</p>
             <div
               className={
-                "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-start"
+                "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 items-start"
               }
             >
               {uses
@@ -56,24 +61,36 @@ export default function UsesPage() {
                   return (
                     <div
                       key={`${use.name}-${index}`}
-                      className="flex flex-col w-full gap-2 items-start"
+                      className="flex flex-col w-full gap-1 items-start"
                     >
-                      {use.specs != undefined ? (
-                        <h1
+                      <h1
+                        className={
+                          "text-foreground font-extrabold text-2xl text-start"
+                        }
+                      >
+                        {
+                          <Link
+                            href={use.link}
+                            className="text-foreground font-extrabold text-2xl text-start hover:underline"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {use.name}
+                          </Link>
+                        }
+                      </h1>
+                      {use.specs && (
+                        <h2
                           className={
-                            "text-foreground/90 font-extrabold text-xl mb-0 text-start"
+                            "text-foreground/90 font-bold text-lg text-start"
                           }
-                        >{`${use.name} - ${use.specs}`}</h1>
-                      ) : (
-                        <h1
-                          className={
-                            "text-foreground/90 font-extrabold text-xl mb-0 text-start"
-                          }
-                        >{`${use.name}`}</h1>
+                        >
+                          {use.specs}
+                        </h2>
                       )}
                       <h3
                         className={
-                          "text-foreground/80 font-regular text-md mb-1 text-start"
+                          "text-foreground/80 font-medium text-md text-start"
                         }
                       >
                         {use.description}
