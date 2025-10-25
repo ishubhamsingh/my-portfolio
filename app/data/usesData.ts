@@ -33,25 +33,25 @@ const uses = [
     link: "https://www.amazon.in/Phantom-Storage-AMOLED-Display-Processor/dp/B0BZCG8FNL",
   },
   {
-    name: "iPhone 12",
-    specs: "A14 Bionic, 128 GB, iOS 18.3.1",
+    name: "iPhone 17 Pro (Cosmic Orange)",
+    specs: "A19 Pro, 256 GB, iOS 26.0.1",
     description:
-      "This is my primary phone, using since 4 years, still running great",
+      "Recently upgraded to this beast, using as daily driver, love the performance and camera",
     type: UsesTypes.Mobile,
     category: [UsesCategories.Personal],
-    link: "https://www.flipkart.com/apple-iphone-12-blue-128-gb/p/itm02853ae92e90a",
+    link: "https://www.flipkart.com/apple-iphone-17-pro-cosmic-orange-256-gb/p/itm76fe37ca9ea8c",
   },
   {
-    name: "Samsung S21 FE 5G",
-    specs: "Exynos 2100, 128 GB, Android 14, One UI 6.1",
-    description: "My secondary phone, love Samsung but hate Exynos",
+    name: "Nothing Phone (3) (Black)",
+    specs: "Snapdragon 8s Gen 4, 256 GB, 12 GB, Android 16, Nothing OS 4.0",
+    description: "Using it as my secondary personal phone, particularly love Nothing OS",
     type: UsesTypes.Mobile,
     category: [UsesCategories.Personal],
-    link: "https://www.flipkart.com/samsung-galaxy-s21-fe-5g-graphite-128-gb/p/itm7be0f72fff180",
+    link: "https://www.flipkart.com/nothing-phone-3-black-256-gb/p/itm0c32a18b0df8a",
   },
   {
     name: "iPad Air 3rd Gen",
-    specs: "A12 Bionic, 64 GB, WiFi, iPad OS 18.3",
+    specs: "A12 Bionic, 64 GB, WiFi, iPad OS 26",
     description: "Use it for media consumption and casual reading",
     type: UsesTypes.Mobile,
     category: [UsesCategories.Personal],
@@ -59,7 +59,7 @@ const uses = [
   },
   {
     name: "Apple Watch Series 6",
-    specs: "44 mm, GPS, Watch OS 11.3",
+    specs: "44 mm, GPS, Watch OS 26",
     description:
       "Perfect iPhone companion, use it for sleep & fitness tracking",
     type: UsesTypes.Mobile,
@@ -69,7 +69,7 @@ const uses = [
   {
     name: "Dell G15 7588, 2018, 15.6 inch",
     specs:
-      "i7 8th Gen, 16 GB RAM, 512 nvme SSD, 1 TB SATA SSD, Geforce GTX 1060, Endeavour OS",
+      "i7 8th Gen, 16 GB RAM, 512 nvme SSD, 1 TB SATA SSD, Geforce GTX 1060, Ubuntu 25.04",
     description:
       "Never buying a gaming laptop again, use it for hosting home media server",
     type: UsesTypes.Computer,
@@ -78,7 +78,7 @@ const uses = [
   },
   {
     name: "Mac Mini, 2024",
-    specs: "M4 Pro, 24 GB RAM, 512 GB SSD, Mac OS Sequoia",
+    specs: "M4 Pro, 24 GB RAM, 512 GB SSD, Mac OS Tahoe",
     description:
       "A cute little beast, use it for personal projects and casual browsing",
     type: UsesTypes.Computer,
@@ -100,11 +100,33 @@ const uses = [
     link: "https://www.flipkart.com/logitech-mx-master-3-ultrafast-scrolling-ergonomic-4000-dpi-wireless-hybrid-mouse/p/itm47d093e35a83b",
   },
   {
-    name: "Apple AirPods Pro",
-    description: "Use it for comfort and ease, mostly for calls",
+    name: "Sony WF-1000XM5",
+    description: "My goto TWS for music while traveling and working out, way better than AirPods Pro",
     type: UsesTypes.Audio,
-    category: [UsesCategories.Work, UsesCategories.Personal],
-    link: "https://www.flipkart.com/apple-airpods-pro-magsafe-charging-case-bluetooth-headset/p/itm0847811966368",
+    category: [UsesCategories.Personal],
+    link: "https://www.amazon.in/Sony-WF-1000XM5-Cancelling-Headphones-Multi-Point/dp/B0C33XXS56",
+  },
+  {
+    name: "Moondrop Aria 2 (Silver)",
+    description: "Fantastic in-ear monitors, to satisfy my audiophile needs, currently my favorite",
+    type: UsesTypes.Audio,
+    category: [UsesCategories.Personal],
+    link: "https://www.headphonezone.in/products/moondrop-aria2",
+  },
+  {
+    name: "Truthear x Crinacle - ZERO:RED",
+    description:
+      "Great neutral sound signature, perfect for gaming and listening EDMs",
+    type: UsesTypes.Audio,
+    category: [UsesCategories.Personal],
+    link: "https://www.headphonezone.in/products/truthear-x-crinacle-zero-red",
+  },
+  {
+    name: "FiiO KA13",
+    description: "Compact DAC and Amplifier for listening Hi-Res audio on my IEMs",
+    type: UsesTypes.Peripheral,
+    category: [UsesCategories.Personal],
+    link: "https://www.headphonezone.in/products/fiio-ka13",
   },
   {
     name: "Sony WH-1000XM4",
@@ -113,6 +135,13 @@ const uses = [
     type: UsesTypes.Audio,
     category: [UsesCategories.Personal],
     link: "https://www.sony.co.in/electronics/headband-headphones/wh-1000xm4",
+  },
+  {
+    name: "Apple AirPods Pro",
+    description: "Use it for comfort and ease, mostly for calls",
+    type: UsesTypes.Audio,
+    category: [UsesCategories.Work, UsesCategories.Personal],
+    link: "https://www.flipkart.com/apple-airpods-pro-magsafe-charging-case-bluetooth-headset/p/itm0847811966368",
   },
   {
     name: "Sony PlayStation 5",
@@ -261,8 +290,15 @@ const uses = [
     link: "https://open.spotify.com/download",
   },
   {
+    name: "Apple Music",
+    description: "Perfect for Hi-Res Audio listening",
+    type: UsesTypes.Software,
+    category: [UsesCategories.Personal],
+    link: "https://www.apple.com/apple-music/",
+  },
+  {
     name: "iTerm2",
-    description: "Because CLI is fun",
+    description: "Because CLI is the way to go",
     type: UsesTypes.Software,
     category: [UsesCategories.Work, UsesCategories.Personal],
     link: "https://iterm2.com/",
