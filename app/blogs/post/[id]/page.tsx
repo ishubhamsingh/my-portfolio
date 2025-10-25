@@ -7,8 +7,9 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { FiHash } from 'react-icons/fi'
 import PostAvatarDateComponent from '@/app/components/PostAvatarDateComponent'
-import { BASE_URL } from '@/app/constants';
 import { Post } from '@/app/types';
+import { getPostData, getAllPostIds } from '@/lib/posts';
+import { BASE_URL } from '@/app/constants';
 import Image from "next/image";
 
 type Params = {
@@ -19,11 +20,18 @@ type Props = {
     params: Params
 }
 
-  async function fetchPostData(id: string) {
-    let response = await fetch(`${BASE_URL}/blogs/post/api/getPostById?id=${id}`, { next: { revalidate: 43200 } })
-    const postData: Post = await response.json()
-    return postData
-} 
+// Use ISR / static generation to avoid per-request HTTP and filesystem overhead.
+export const revalidate = 43200 // seconds (12 hours)
+
+async function fetchPostData(id: string) {
+  const postData: Post = await getPostData(id)
+  return postData
+}
+
+export async function generateStaticParams() {
+  const all = await getAllPostIds()
+  return all.map((p: any) => p.params)
+}
 
   export async function generateMetadata({ params }: Props) {
     const postData = await fetchPostData(params.id)

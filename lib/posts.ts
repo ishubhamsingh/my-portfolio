@@ -12,7 +12,13 @@ import remarkGfm from 'remark-gfm'
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
+let allPostsCache: any[] | null = null
+const postCache: Record<string, any> = {}
+
 export async function getSortedPostsData() {
+  // Return cached list when running in production
+  if (process.env.NODE_ENV === 'production' && allPostsCache) return allPostsCache
+
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
@@ -50,13 +56,17 @@ export async function getSortedPostsData() {
     }
   });
 
-  return sortedPosts.filter((post) => post.published === true)
+  const published = sortedPosts.filter((post) => post.published === true)
+
+  if (process.env.NODE_ENV === 'production') allPostsCache = published
+
+  return published
 }
 
 export async function getPostsByTag(query: string) {
-   const allPosts = await getSortedPostsData()
+  const allPosts = await getSortedPostsData()
 
-   return allPosts.filter((post) => post.categories.filter((i) => i.includes(query.toLowerCase())).length > 0 || post.title.toLowerCase().includes(query.toLowerCase()) || post.description.toLowerCase().includes(query.toLowerCase()))
+  return allPosts.filter((post) => post.categories.filter((i: string) => i.includes(query.toLowerCase())).length > 0 || post.title.toLowerCase().includes(query.toLowerCase()) || post.description.toLowerCase().includes(query.toLowerCase()))
 }
 
 export async function getAllPostIds() {
@@ -72,6 +82,9 @@ export async function getAllPostIds() {
 }
 
 export async function getPostData(id: string) {
+  // Return cached post in production to avoid repeated fs + parsing
+  if (process.env.NODE_ENV === 'production' && postCache[id]) return postCache[id]
+
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
@@ -115,4 +128,20 @@ export async function getPostData(id: string) {
       published: boolean
     }),
   }
+}
+
+// Cache the post before returning when in production
+// (keeps the returned shape stable and avoids duplicate reads)
+const originalGetPostData = getPostData
+export async function _getPostDataWithCache(id: string) {
+  const post = await originalGetPostData(id)
+  if (process.env.NODE_ENV === 'production') postCache[id] = post
+  return post
+}
+
+// For backwards compatibility, export getPostData as the cached wrapper
+// in production; in development the original function is used directly.
+if (process.env.NODE_ENV === 'production') {
+  // @ts-ignore - reassign export
+  exports.getPostData = _getPostDataWithCache
 }
