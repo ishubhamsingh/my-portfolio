@@ -12,9 +12,9 @@ import { getPostData, getAllPostIds } from '@/lib/posts';
 import { BASE_URL } from '@/app/constants';
 import Image from "next/image";
 
-type Params = {
+type Params = Promise<{
     id: string
-}
+}>
 
 type Props = {
     params: Params
@@ -30,11 +30,12 @@ async function fetchPostData(id: string) {
 
 export async function generateStaticParams() {
   const all = await getAllPostIds()
-  return all.map((p: { params: Params }) => p.params)
+  return all.map((p: { params: { id: string } }) => p.params)
 }
 
   export async function generateMetadata({ params }: Props) {
-    const postData = await fetchPostData(params.id)
+    const { id } = await params
+    const postData = await fetchPostData(id)
     return {
       metadataBase: new URL(BASE_URL),
       title: postData.title,
@@ -67,7 +68,8 @@ export async function generateStaticParams() {
   }
 
 export default async function PostPage({params}: Props) {
-  const postData = await fetchPostData(params.id)
+  const { id } = await params
+  const postData = await fetchPostData(id)
     return (
       <section className="flex flex-col min-h-screen w-full p-8 items-center">
         <div className='flex flex-col w-full md:w-5/6 lg:w-3/6 '>
