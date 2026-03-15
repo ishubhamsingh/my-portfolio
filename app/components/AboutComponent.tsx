@@ -1,6 +1,6 @@
 'use client'
 
-import { Link, Button } from "@nextui-org/react";
+import { Link, Button } from "@heroui/react";
 import {SiGmail, SiGithub, SiLinkedin, SiX, SiTelegram} from "react-icons/si"
 import AboutImage from "/public/images/about.svg";
 import Image from "next/image";

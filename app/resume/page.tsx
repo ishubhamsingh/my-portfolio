@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { FiDownload } from "react-icons/fi";
 import NextImage from "next/image";
 import resumePage1 from "@/public/images/shubham-singh-resume-page1.jpg";

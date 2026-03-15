@@ -2,7 +2,7 @@
 
 import BlogPostCardComponent from '../components/BlogPostCardComponent';
 import { useEffect, useState } from 'react';
-import {Input, CircularProgress} from "@nextui-org/react";
+import {Input, CircularProgress} from "@heroui/react";
 import { FiSearch } from "react-icons/fi"
 import { Post, Posts } from "@/app/types"
 

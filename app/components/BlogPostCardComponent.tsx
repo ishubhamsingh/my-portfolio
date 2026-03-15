@@ -3,7 +3,7 @@
 import {
   Card,
   CardBody
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { useRouter } from "next/navigation";
 import PostAvatarDateComponent from "./PostAvatarDateComponent";
 import Image from "next/image";

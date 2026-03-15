@@ -1,5 +1,5 @@
 //Desc: Footer component for the app
-import { Link } from "@nextui-org/react";
+import { Link } from "@heroui/react";
 
 export default function FooterComponent() {
   return (
