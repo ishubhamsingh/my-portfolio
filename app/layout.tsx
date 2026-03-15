@@ -37,11 +37,32 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Shubham Singh',
+              url: BASE_URL,
+              jobTitle: 'Software Engineer',
+              knowsAbout: ['Android', 'Kotlin', 'Jetpack Compose', 'React', 'TypeScript'],
+              sameAs: [
+                'https://github.com/ishubhamsingh',
+              ],
+            }),
+          }}
+        />
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-background focus:text-foreground">
+          Skip to content
+        </a>
         <Providers>
-        <SnowfallComponent />  
+        <SnowfallComponent />
         <Navbar />
         <WebVitals />
+        <main id="main-content">
         {children}
+        </main>
         <Footer />
         </Providers>
         <Analytics />
