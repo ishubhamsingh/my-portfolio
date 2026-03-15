@@ -1,12 +1,14 @@
 'use client'
- 
+
 import { useReportWebVitals } from 'next/web-vitals'
- 
+
+type ReportWebVitalsCallback = Parameters<typeof useReportWebVitals>[0]
+
+const logWebVitals: ReportWebVitalsCallback = (metric) => {
+  console.log(metric)
+}
+
 export function WebVitals() {
-  useReportWebVitals((metric) => {
-    console.log(metric)
-  })
-  return (
-    <div></div>
-  )
+  useReportWebVitals(logWebVitals)
+  return null
 }
