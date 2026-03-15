@@ -34,10 +34,11 @@ export default function BlogPage() {
         <div className='w-full md:w-5/6 lg:w-4/6 xl:3/6'>
         <div className='flex flex-col gap-8 mb-24 items-center justify-start md:flex-row md:justify-between sm:flex-row sm:justify-between'>
         <p className="text-4xl font-bold text-start">Blogs</p>
-         <Input 
+         <Input
          type={"text"}
          placeholder="Search"
-         variant={"faded"}  
+         aria-label="Search blog posts"
+         variant={"faded"}
          radius={"full"}
          value={searchQuery}
          onValueChange={setSearchQuery}

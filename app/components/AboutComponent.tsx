@@ -42,7 +42,7 @@ export default function AboutComponent() {
           <Image
             src={AboutImage}
             className={"size-4/6 md:size-2/6"}
-            alt="about"
+            alt="Illustration of a developer working"
             placeholder={"empty"}
             />
         <div className="flex flex-col gap-4 justify-center">  
@@ -72,11 +72,12 @@ export default function AboutComponent() {
         <div className="flex flex-col gap-8 mt-8 w-full items-center">
         <div className="flex flex-row gap-8 items-center">
             {
-                contactLinks.map((contactLink, index) =>(
-                    <Button 
-                    isIconOnly 
-                    key={`${contactLink}+${index}`} 
+                contactLinks.map((contactLink) =>(
+                    <Button
+                    isIconOnly
+                    key={contactLink.name}
                     variant={"flat"} color={"default"} radius={"full"}
+                    aria-label={contactLink.name}
                     onClick={() => window.open(contactLink.link, "_blank")}
                     >
                         {contactLink.icon}
