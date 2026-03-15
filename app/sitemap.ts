@@ -16,8 +16,8 @@ type Sitemap = Array<{
     priority?: number
   }>
 
-export default function sitemap(): MetadataRoute.Sitemap {
-    let sitemap: Sitemap = [
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const sitemap: Sitemap = [
         {
             url: `${BASE_URL}`,
             lastModified: new Date(),
@@ -44,24 +44,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
     ]
 
-    getSortedPostsData().then(
-        (allPosts) => {
-            allPosts.map((post) => {
-                sitemap.push(
-                    {
-                        url: `${BASE_URL}/blogs/post/${post.id}`,
-                        lastModified: new Date(),
-                        changeFrequency: 'weekly',
-                        priority: 0.9
-                    }
-                )
-            });
-        }
-    ).catch((e) =>
-        console.error(e)
-    ).finally(() => {
-        return sitemap
-    })
+    const allPosts = await getSortedPostsData()
+    for (const post of allPosts) {
+        sitemap.push({
+            url: `${BASE_URL}/blogs/post/${post.id}`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9
+        })
+    }
 
     return sitemap
 }
