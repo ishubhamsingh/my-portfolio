@@ -25,13 +25,13 @@ export default function AboutPage() {
       <div className="flex flex-col w-full items-center justify-center gap-8 mx-8">
         <NextImage
           src={resumePage1}
-          alt="resume page 1"
+          alt="Shubham Singh resume page 1"
           placeholder={"blur"}
           className={"w-4/6 h-auto m-auto max-sm:w-full rounded-xl md:rounded-2xl lg:rounded-3xl"}
         />
         <NextImage
           src={resumePage2}
-          alt="resume page 1"
+          alt="Shubham Singh resume page 2"
           placeholder={"blur"}
           className={"w-4/6 h-auto m-auto max-sm:w-full rounded-xl md:rounded-2xl lg:rounded-b-3xl"}
         />

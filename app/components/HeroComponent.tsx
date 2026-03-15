@@ -37,12 +37,12 @@ export default function HeroComponent() {
         <p className="font-regular text-6xl uppercase text-foreground-500">
           Hello,
         </p>
-        <div className="flex flex-row items-start gap-2 max-sm:flex-col">
-          <p className="text-6xl font-regular text-foreground-500">I&apos;M</p>
-          <p className="text-6xl font-bold uppercase text-foreground whitespace-nowrap max-sm:whitespace-normal">
+        <h1 className="flex flex-row items-start gap-2 max-sm:flex-col">
+          <span className="text-6xl font-regular text-foreground-500">I&apos;M</span>
+          <span className="text-6xl font-bold uppercase text-foreground whitespace-nowrap max-sm:whitespace-normal">
             Shubham Singh
-          </p>
-        </div>
+          </span>
+        </h1>
         <p className="text-2xl m-auto pt-8 font-normal text-foreground-500">
           I&apos;m a Software Engineer who loves making modern Android & Web
           apps.
@@ -75,7 +75,7 @@ export function AvatarComponent(props: {width: number, height: number, src: Stat
       className="rounded-full object-cover aspect-square object-center"
       style={{ width: props.width, height: props.height }}
       src={props.src}
-      alt="avatar"
+      alt="Shubham Singh's profile photo"
       width={props.width}
       height={props.height}
       placeholder={props.placeholder} />
