@@ -14,9 +14,9 @@ async function fetchData(query: string) {
 }  
 
 export default function BlogPage() {
-    const [data, setData] = useState([] as Posts)
-    const [searchQuery, setSearchQuery] = useState("" as string)
-    const [isLoading, setLoading] = useState(false as boolean)
+    const [data, setData] = useState<Posts>([])
+    const [searchQuery, setSearchQuery] = useState("")
+    const [isLoading, setLoading] = useState(false)
     
     useEffect(() => {
         setLoading(true)
