@@ -1,7 +1,7 @@
 'use client'
 
 import BlogPostCardComponent from '../components/BlogPostCardComponent';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import {Input, CircularProgress} from "@heroui/react";
 import { FiSearch } from "react-icons/fi"
 import { Post, Posts } from "@/app/types"
@@ -11,27 +11,43 @@ async function fetchData(query: string) {
     let response = await fetch(`/blogs/api/posts?query=${query}`)
     const allPostsData: Posts = await response.json()
     return allPostsData
-}  
+}
 
 export default function BlogPage() {
     const [data, setData] = useState<Posts>([])
     const [searchQuery, setSearchQuery] = useState("")
+    const [debouncedQuery, setDebouncedQuery] = useState("")
     const [isLoading, setLoading] = useState(false)
-    
+    const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+    const handleSearchChange = useCallback((value: string) => {
+        setSearchQuery(value)
+        if (debounceTimer.current) clearTimeout(debounceTimer.current)
+        debounceTimer.current = setTimeout(() => {
+            setDebouncedQuery(value)
+        }, 350)
+    }, [])
+
+    useEffect(() => {
+        return () => {
+            if (debounceTimer.current) clearTimeout(debounceTimer.current)
+        }
+    }, [])
+
     useEffect(() => {
         setLoading(true)
-        fetchData(searchQuery).then((data: Posts) => {  
-            setData(data) 
+        fetchData(debouncedQuery).then((data: Posts) => {
+            setData(data)
         }).catch((e) => {
             console.error(e)
         }).then(() => {
             setLoading(false)
         })
-    }, [searchQuery]);
+    }, [debouncedQuery]);
 
     return (
        <section className="flex p-8 mx-auto flex-col min-h-screen items-center">
-        <div className='w-full md:w-5/6 lg:w-4/6 xl:3/6'>
+        <div className='w-full md:w-5/6 lg:w-4/6'>
         <div className='flex flex-col gap-8 mb-24 items-center justify-start md:flex-row md:justify-between sm:flex-row sm:justify-between'>
         <p className="text-4xl font-bold text-start">Blogs</p>
          <Input
@@ -41,7 +57,7 @@ export default function BlogPage() {
          variant={"faded"}
          radius={"full"}
          value={searchQuery}
-         onValueChange={setSearchQuery}
+         onValueChange={handleSearchChange}
          startContent={<FiSearch />}
          isClearable
          className='max-w-unit-6xl'/> 
