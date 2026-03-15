@@ -70,7 +70,7 @@ export default function HeroComponent() {
 
 export function AvatarComponent(props: {width: number, height: number, src: StaticImageData | string, placeholder: PlaceholderValue}) {
   return (
-    <div className="flex flex-shrink-0 flex-grow-0 rounded-full ring-2 ring-offset-2 ring-default-300 ring-offset-background" style={{ width: props.width, height: props.height }}>
+    <div className="flex shrink-0 grow-0 rounded-full ring-2 ring-offset-2 ring-default-300 ring-offset-background" style={{ width: props.width, height: props.height }}>
       <Image
       className="rounded-full object-cover aspect-square object-center"
       style={{ width: props.width, height: props.height }}

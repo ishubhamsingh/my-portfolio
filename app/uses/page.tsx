@@ -4,7 +4,7 @@ import { UsesCategories, UsesTypes } from "../data/usesData";
 import uses from "../data/usesData";
 import NextImage from "next/image";
 import setup from "@/public/images/setup.jpg";
-import { Card, Chip, Link } from "@nextui-org/react";
+import { Card, Chip, Link } from "@heroui/react";
 
 export default function UsesPage() {
   return (

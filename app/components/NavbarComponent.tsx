@@ -10,7 +10,7 @@ import {
   NavbarMenu,
   NavbarMenuToggle,
   NavbarMenuItem,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import ThemeSwitch from "./ThemeSwitch";
 import { usePathname } from "next/navigation";
 import { AvatarComponent } from "./HeroComponent";
