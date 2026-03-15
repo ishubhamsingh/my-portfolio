@@ -5,12 +5,32 @@ import addClasses from 'rehype-class-names';
 import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import type { ExtraProps } from 'react-markdown'
 import { FiHash } from 'react-icons/fi'
 import PostAvatarDateComponent from '@/app/components/PostAvatarDateComponent'
 import { Post } from '@/app/types';
 import { getPostData, getAllPostIds } from '@/lib/posts';
 import { BASE_URL } from '@/app/constants';
 import Image from "next/image";
+
+function CodeBlock({ className, children, node }: React.HTMLAttributes<HTMLElement> & ExtraProps) {
+  const inline = node?.position?.start.line === node?.position?.end.line;
+  const match = /language-(\w+)/.exec(className || '');
+  return !inline && match ? (
+    <SyntaxHighlighter
+      style={atomDark}
+      language={match[1]}
+      showLineNumbers
+      wrapLines
+      wrapLongLines
+      PreTag="div"
+    >
+      {String(children).replace(/\n$/, '')}
+    </SyntaxHighlighter>
+  ) : (
+    <Code color={'danger'}>{children}</Code>
+  );
+}
 
 type Params = Promise<{
     id: string
@@ -111,24 +131,7 @@ export default async function PostPage({params}: Props) {
           rehypePlugins={[[addClasses, addClassesOptions]]}
           className={'flex p-8 mx-auto flex-col w-full'}
           components={{
-            code({ node, inline, className, children, ...props }: any) {
-              const match = /language-(\w+)/.exec(className || '');
-              return !inline && match ? (
-                <SyntaxHighlighter
-                  style={atomDark}
-                  language={match[1]}
-                  showLineNumbers
-                  wrapLines
-                  wrapLongLines
-                  PreTag="div"
-                  {...props}
-                >
-                  {String(children).replace(/\n$/, '')}
-                </SyntaxHighlighter>
-              ) : (
-                <Code color={'danger'}>{children}</Code>
-              );
-            }
+            code: CodeBlock
           }}
           >
             {postData.contentMd}

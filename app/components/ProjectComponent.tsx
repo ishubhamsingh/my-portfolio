@@ -35,7 +35,6 @@ export default function ProjectComponent() {
                   height={40}
                   width={40}
                   className="w-[40px] h-[40px] rounded-full"
-                  placeholder={"empty"}
                   />
               <p className="text-2xl font-medium">{project.name}</p>
             </CardHeader>

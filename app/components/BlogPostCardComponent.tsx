@@ -41,7 +41,6 @@ const BlogPostCardComponent = (props: Props) => {
                 width={0}
                 height={0}
                 sizes="100vw"
-                placeholder={"empty"}
               />
         }  
       <div className="mx-4 mb-4">

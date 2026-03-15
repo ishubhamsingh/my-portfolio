@@ -3,12 +3,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { unified } from 'unified'  
-import parse from 'remark-parse';  
-import remark2rehype from "remark-rehype";   
-import html from 'rehype-stringify';
-import addClasses from 'rehype-class-names';
-import remarkGfm from 'remark-gfm'
 import { Post } from '@/app/types'
 
 const postsDirectory = path.join(process.cwd(), 'posts');
@@ -92,57 +86,26 @@ export async function getPostData(id: string) {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents)
 
-  // Use remark to convert markdown into HTML string
-  // const processedContent = await unified()
-  // .use(parse)
-  // .use(remarkGfm)
-  // .use(remark2rehype)
-  // .use(addClasses, {
-  //   'h1,h2,h3,p,a,ul,ol,pre,blockquote,table,code': 'default',
-  //   a: 'text-primary text-lg',
-  //   p: 'text-lg',
-  //   pre: 'text-md font-mono',
-  //   code: 'text-md font-mono text-wrap',
-  //   li: 'text-lg',
-  //   blockquote: 'text-md border-l-8 border-primary pl-8 pr-16 justify-start text-start',
-  //   table: 'flex w-fit my-8 border-collapse border border-foreground/30',
-  //   th: 'text-lg font-bold p-4 border border-foreground/30 bg-zinc-100 dark:bg-zinc-900',
-  //   td: 'text-start justify-start text-md font-normal p-2 border border-foreground/30 bg-zinc-50 dark:bg-zinc-800'
-  // })
-  // .use(html)
-  // .process(matterResult.content)
-  
   const contentMd = matterResult.content.toString()
 
   // Combine the data with the id
-  return {
+  const post = {
     id,
     contentMd,
     ...(matterResult.data as {
       title: string,
       description: string,
       headerImage?: string,
-      categories: string[], 
+      categories: string[],
       date: string,
       authorName: string,
       authorAvatar: string,
       published: boolean
     }),
   }
-}
 
-// Cache the post before returning when in production
-// (keeps the returned shape stable and avoids duplicate reads)
-const originalGetPostData = getPostData
-export async function _getPostDataWithCache(id: string) {
-  const post = await originalGetPostData(id)
   if (process.env.NODE_ENV === 'production') postCache[id] = post
+
   return post
 }
 
-// For backwards compatibility, export getPostData as the cached wrapper
-// in production; in development the original function is used directly.
-if (process.env.NODE_ENV === 'production') {
-  // @ts-ignore - reassign export
-  exports.getPostData = _getPostDataWithCache
-}
