@@ -51,7 +51,7 @@ export default function HeroComponent() {
           {skills.map((skill, index) => (
             <div
               className="flex flex-row gap-2 item-center justify-center"
-              key={`${skill}+${index}`}
+              key={skill.name}
             >
               {skill.icon}
               <p className="text-2xl font-normal text-foreground-600">
