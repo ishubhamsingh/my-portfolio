@@ -1,4 +1,12 @@
-const projects = [
+export interface Project {
+  name: string;
+  description: string;
+  techStack: string[];
+  link: string;
+  image: string;
+}
+
+const projects: Project[] = [
     {
       name: "Splashy",
       description: "An Unsplash based wallpaper app built with Compose Multiplatform and KMM for Android and iOS.",

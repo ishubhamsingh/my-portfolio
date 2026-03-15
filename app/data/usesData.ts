@@ -13,7 +13,16 @@ enum UsesCategories {
   Personal = "Personal",
 }
 
-const uses = [
+export interface UseItem {
+  name: string;
+  specs?: string;
+  description: string;
+  type: UsesTypes;
+  category: UsesCategories[];
+  link: string;
+}
+
+const uses: UseItem[] = [
   {
     name: "MacBook Pro, 16 inch, 2023",
     specs: "M3 Pro, 36 GB RAM, 1 TB SSD, Mac OS Sequoia",

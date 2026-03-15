@@ -9,11 +9,12 @@ import remark2rehype from "remark-rehype";
 import html from 'rehype-stringify';
 import addClasses from 'rehype-class-names';
 import remarkGfm from 'remark-gfm'
+import { Post } from '@/app/types'
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
-let allPostsCache: any[] | null = null
-const postCache: Record<string, any> = {}
+let allPostsCache: Post[] | null = null
+const postCache: Record<string, Post> = {}
 
 export async function getSortedPostsData() {
   // Return cached list when running in production

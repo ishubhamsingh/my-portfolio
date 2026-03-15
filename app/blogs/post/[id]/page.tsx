@@ -30,7 +30,7 @@ async function fetchPostData(id: string) {
 
 export async function generateStaticParams() {
   const all = await getAllPostIds()
-  return all.map((p: any) => p.params)
+  return all.map((p: { params: Params }) => p.params)
 }
 
   export async function generateMetadata({ params }: Props) {
