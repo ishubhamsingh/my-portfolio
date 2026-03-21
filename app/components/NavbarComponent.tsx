@@ -21,7 +21,8 @@ export default function NavbarComponent() {
   const pathname = usePathname();
 
   const isActivePath = (href: string) => {
-    return href === pathname;
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
   };
 
   const navItems = [
