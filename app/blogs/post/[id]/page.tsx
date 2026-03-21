@@ -8,6 +8,7 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import type { ExtraProps } from 'react-markdown'
 import { FiHash } from 'react-icons/fi'
 import PostAvatarDateComponent from '@/app/components/PostAvatarDateComponent'
+import BlogBreadcrumb from '@/app/components/BlogBreadcrumb'
 import { Post } from '@/app/types';
 import { getPostData, getAllPostIds } from '@/lib/posts';
 import { BASE_URL } from '@/app/constants';
@@ -93,6 +94,7 @@ export default async function PostPage({params}: Props) {
     return (
       <section className="flex flex-col min-h-screen w-full p-8 items-center">
         <div className='flex flex-col w-full md:w-5/6 lg:w-3/6 '>
+        <BlogBreadcrumb title={postData.title} />
         <h1 className={'text-foreground/90 font-extrabold text-3xl mb-1'}>{postData.title}</h1>
         <h3 className='text-foreground/80 font-medium text-xl mb-4'>{postData.description}</h3>  
         <PostAvatarDateComponent 
