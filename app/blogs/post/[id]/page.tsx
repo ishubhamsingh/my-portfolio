@@ -9,10 +9,24 @@ import type { ExtraProps } from 'react-markdown'
 import { FiHash } from 'react-icons/fi'
 import PostAvatarDateComponent from '@/app/components/PostAvatarDateComponent'
 import BlogBreadcrumb from '@/app/components/BlogBreadcrumb'
+import YoutubeEmbed from '@/app/components/YoutubeEmbed'
 import { Post } from '@/app/types';
 import { getPostData, getAllPostIds } from '@/lib/posts';
 import { BASE_URL } from '@/app/constants';
 import Image from "next/image";
+
+function CustomParagraph({ children, node, ...props }: React.HTMLAttributes<HTMLParagraphElement> & ExtraProps) {
+  if (node?.children?.length === 1) {
+    const child = node.children[0]
+    if (child.type === 'element' && child.tagName === 'a') {
+      const href = (child.properties?.href as string) ?? ''
+      if (/youtube\.com\/watch|youtu\.be\//.test(href)) {
+        return <YoutubeEmbed url={href} />
+      }
+    }
+  }
+  return <p {...props}>{children}</p>
+}
 
 function CodeBlock({ className, children, node }: React.HTMLAttributes<HTMLElement> & ExtraProps) {
   const inline = node?.position?.start.line === node?.position?.end.line;
@@ -133,7 +147,8 @@ export default async function PostPage({params}: Props) {
           rehypePlugins={[[addClasses, addClassesOptions]]}
           className={'flex p-8 mx-auto flex-col w-full'}
           components={{
-            code: CodeBlock
+            code: CodeBlock,
+            p: CustomParagraph
           }}
           >
             {postData.contentMd}
