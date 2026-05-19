@@ -27,6 +27,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "blog.jetbrains.com"
+      },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com"
       }
     ],
   },
