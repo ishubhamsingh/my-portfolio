@@ -49,12 +49,13 @@ export default function YoutubeEmbed({ url }: { readonly url: string }) {
         className="object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/25 transition-colors">
-        <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-          <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/50 group-hover:bg-black/40 transition-colors">
+        <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-2xl ring-4 ring-white/20 group-hover:scale-110 group-hover:ring-white/40 transition-all">
+          <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z" />
           </svg>
         </div>
+        <span className="text-white text-sm font-semibold tracking-wide uppercase bg-black/40 px-4 py-1 rounded-full">Watch Demo</span>
       </div>
     </button>
   )
