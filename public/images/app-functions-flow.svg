@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 140" width="880" height="140" font-family="ui-sans-serif, system-ui, sans-serif">
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#52525b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="140" rx="16" fill="#18181b"/>
+
+  <!-- Node 1: User — x=20, w=165, center=102 -->
+  <rect x="20" y="30" width="165" height="80" rx="10" fill="#27272a" stroke="#52525b" stroke-width="1.5"/>
+  <text x="102" y="62" text-anchor="middle" fill="#a1a1aa" font-size="11" font-weight="500">User</text>
+  <text x="102" y="83" text-anchor="middle" fill="#f4f4f5" font-size="13" font-weight="700">"Add milk,</text>
+  <text x="102" y="100" text-anchor="middle" fill="#f4f4f5" font-size="13" font-weight="700">expires Friday"</text>
+
+  <!-- Arrow 1 -->
+  <line x1="188" y1="70" x2="247" y2="70" stroke="#52525b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Node 2: AI Agent — x=250, w=165, center=332 -->
+  <rect x="250" y="30" width="165" height="80" rx="10" fill="#27272a" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="332" y="57" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="500">AI Agent</text>
+  <text x="332" y="78" text-anchor="middle" fill="#f4f4f5" font-size="13" font-weight="700">Claude / Gemini</text>
+  <text x="332" y="97" text-anchor="middle" fill="#71717a" font-size="11">discovers functions</text>
+
+  <!-- Arrow 2 -->
+  <line x1="418" y1="70" x2="477" y2="70" stroke="#52525b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Node 3: App Functions — x=480, w=165, center=562 -->
+  <rect x="480" y="30" width="165" height="80" rx="10" fill="#27272a" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text x="562" y="57" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="500">App Functions</text>
+  <text x="562" y="78" text-anchor="middle" fill="#f4f4f5" font-size="13" font-weight="700">@AppFunction</text>
+  <text x="562" y="97" text-anchor="middle" fill="#71717a" font-size="11">schema + permissions</text>
+
+  <!-- Arrow 3 -->
+  <line x1="648" y1="70" x2="707" y2="70" stroke="#52525b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Node 4: Your App — x=710, w=165, center=792 -->
+  <rect x="710" y="30" width="165" height="80" rx="10" fill="#27272a" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="792" y="57" text-anchor="middle" fill="#86efac" font-size="11" font-weight="500">Your App</text>
+  <text x="792" y="78" text-anchor="middle" fill="#f4f4f5" font-size="13" font-weight="700">addItem()</text>
+  <text x="792" y="97" text-anchor="middle" fill="#71717a" font-size="11">no UI touched</text>
+
+</svg>

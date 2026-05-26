@@ -22,9 +22,13 @@ The paradigm shift: **apps that don't expose App Functions are invisible to AI a
 
 App Functions is an experimental Jetpack API (Android 16+) that lets you annotate Kotlin functions in your app so on-device AI agents (like Gemini) can discover and invoke them in response to natural language. Think of it as Android's answer to MCP (Model Context Protocol), an OS-level capability registry agents can discover and call. Instead of a user navigating to your app and tapping through a flow, an agent finds the right function and calls it directly. The OS handles IPC, schema registration, and permission enforcement.
 
+![App Functions flow: natural language to AI agent to App Functions to your app](/images/app-functions-flow.svg)
+
 ## What is Shelfly?
 
 [Shelfly](https://github.com/ishubhamsingh/Shelfly) tracks expiration dates for household items. You add items with a name, category, expiry date, and quantity. The app monitors them, sends daily notifications, and color-codes their status: Fresh, Expiring Soon, Expired, or Consumed. It's small and focused, so every core action maps cleanly to a function an agent could invoke.
+
+![Shelfly home screen showing items color-coded by expiry status](https://raw.githubusercontent.com/ishubhamsingh/Shelfly/main/assets/home_dark.png)
 
 ## Demo
 
