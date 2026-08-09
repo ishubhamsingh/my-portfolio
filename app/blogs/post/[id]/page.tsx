@@ -134,7 +134,7 @@ export default async function PostPage({params}: Props) {
         <Image
           src={postData.headerImage}
           alt={postData.id}
-          className={'w-full h-64 md:h-80 lg:h-96 object-cover shadow-large rounded-large shadow-black/5'}
+          className={'w-full aspect-[40/21] object-cover shadow-large rounded-large shadow-black/5'}
           height={0}
           width={0}
           sizes="100vw"
