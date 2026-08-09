@@ -29,7 +29,7 @@ const BlogPostCardComponent = (props: Props) => {
       radius={"lg"}
       isHoverable
       isPressable
-      className="h-fit w-full transition-all duration-300 ease-in-out hover:scale-105"
+      className="h-full w-full transition-all duration-300 ease-in-out hover:scale-105"
       onPress={() => router.push(`/blogs/post/${props.id}`)}
       >
         <CardBody className=" flex flex-col gap-4 overflow-visible p-0">
@@ -37,7 +37,7 @@ const BlogPostCardComponent = (props: Props) => {
                 <Image
                 alt={props.id}
                 src={props.headerImageUrl}
-                className="w-full h-40 object-cover shadow-medium shadow-black/5"
+                className="w-full aspect-[40/21] object-cover shadow-medium shadow-black/5"
                 width={0}
                 height={0}
                 sizes="100vw"
@@ -49,8 +49,8 @@ const BlogPostCardComponent = (props: Props) => {
         authorName={props.authorName}
         date={props.date}
         />
-        <h4 className="text-foreground/90 font-bold text-lg truncate mt-2">{props.title}</h4>
-        <p className="text-md font-medium text-foreground/60 truncate">
+        <h4 className="text-foreground/90 font-bold text-lg line-clamp-2 mt-2">{props.title}</h4>
+        <p className="text-md font-medium text-foreground/60 line-clamp-2">
           {props.description}
         </p>
       </div>

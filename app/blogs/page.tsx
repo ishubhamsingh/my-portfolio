@@ -46,8 +46,8 @@ export default function BlogPage() {
     }, [debouncedQuery]);
 
     return (
-       <section className="flex p-8 mx-auto flex-col min-h-screen items-center">
-        <div className='w-full md:w-5/6 lg:w-4/6'>
+       <section className="flex px-4 py-8 sm:p-8 mx-auto flex-col min-h-screen items-center">
+        <div className='w-full md:w-5/6 lg:w-4/6 max-w-[1536px]'>
         <div className='flex flex-col gap-8 mb-24 items-center justify-start md:flex-row md:justify-between sm:flex-row sm:justify-between'>
         <p className="text-4xl font-bold text-start">Blogs</p>
          <Input
@@ -60,7 +60,7 @@ export default function BlogPage() {
          onValueChange={handleSearchChange}
          startContent={<FiSearch />}
          isClearable
-         className='max-w-unit-6xl'/> 
+         className='w-full sm:max-w-xs'/>
         </div>
        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-8'>
           {searchQuery !== "" && data.length === 0 && 
