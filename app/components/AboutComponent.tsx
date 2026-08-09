@@ -36,16 +36,16 @@ const contactLinks = [
 export default function AboutComponent() {
   return (
     <section className="flex flex-col justify-center items-center gap-8 p-8 w-full">
-      <div className="flex flex-col gap-4 justify-center">
+      <div className="flex w-full max-w-[1536px] flex-col gap-4 justify-center">
         <p className="text-4xl font-bold my-8 text-center">About</p>
-        <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
+        <div className="flex flex-col md:flex-row gap-12 items-center justify-center">
           <Image
             src={AboutImage}
-            className={"size-4/6 md:size-2/6"}
+            className={"w-full max-w-sm md:max-w-md h-auto"}
             alt="Illustration of a developer working"
             placeholder={"empty"}
             />
-        <div className="flex flex-col gap-4 justify-center">  
+        <div className="flex max-w-2xl flex-col gap-4 justify-center">
         <p className="text-2xl font-medium text-foreground text-start">
           I am a computer science engineering graduate, with around 8 years of
           working experience.

@@ -106,8 +106,8 @@ export default async function PostPage({params}: Props) {
   const { id } = await params
   const postData = await fetchPostData(id)
     return (
-      <section className="flex flex-col min-h-screen w-full p-8 items-center">
-        <div className='flex flex-col w-full md:w-5/6 lg:w-3/6 '>
+      <section className="flex flex-col min-h-screen w-full px-4 py-8 sm:p-8 items-center">
+        <div className='flex flex-col w-full md:w-5/6 lg:w-3/6 max-w-3xl'>
         <BlogBreadcrumb title={postData.title} />
         <h1 className={'text-foreground/90 font-extrabold text-3xl mb-1'}>{postData.title}</h1>
         <h3 className='text-foreground/80 font-medium text-xl mb-4'>{postData.description}</h3>  
@@ -145,7 +145,7 @@ export default async function PostPage({params}: Props) {
           <ReactMarkdown 
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[[addClasses, addClassesOptions]]}
-          className={'flex p-8 mx-auto flex-col w-full'}
+          className={'flex px-0 py-8 sm:p-8 mx-auto flex-col w-full min-w-0'}
           components={{
             code: CodeBlock,
             p: CustomParagraph

@@ -9,12 +9,12 @@ import { Card, Chip, Link } from "@heroui/react";
 export default function UsesPage() {
   return (
     <section className="flex min-h-screen flex-col gap-8 p-8 w-full items-center">
-      <div className="flex flex-col w-4/6 max-sm:w-full m-8 gap-8 justify-between items-start">
+      <div className="flex flex-col w-4/6 max-sm:w-full max-w-[1536px] m-8 gap-8 justify-between items-start">
         <div className="flex flex-col gap-2 w-full items-start m-auto">
           <h1 className={"text-foreground/90 font-extrabold text-3xl mb-1"}>
             Uses
           </h1>
-          <h3 className={"text-foreground/80 font-medium text-xl mb-4"}>
+          <h3 className={"text-foreground/80 font-medium text-xl mb-4 max-w-3xl"}>
             This is a{" "}
             {
               <Link
@@ -47,7 +47,7 @@ export default function UsesPage() {
         return (
           <div
             key={type}
-            className="flex flex-col gap-12 w-4/6 max-sm:w-full m-8 justify-between items-start"
+            className="flex flex-col gap-12 w-4/6 max-sm:w-full max-w-[1536px] m-8 justify-between items-start"
           >
             <p className="text-4xl font-bold text-start">{type}</p>
             <div

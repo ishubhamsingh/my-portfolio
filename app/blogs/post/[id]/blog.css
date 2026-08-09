@@ -80,20 +80,25 @@ table.default {
     unicode-bidi: isolate;
 }
 
-/* Phone screenshots from GitHub — cap at phone width */
-img[src*="raw.githubusercontent.com"] {
-    max-width: 320px;
+/* Screenshots are centred and capped so they never dominate the column.
+   The cap is min(px, 100%) rather than a bare pixel value: on a narrow phone
+   the fixed width alone is wider than the available column and the image
+   spills past the right edge of the viewport. */
+img[src*="raw.githubusercontent.com"],
+img[src*="-widget-"] {
     display: block;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
     border-radius: 1rem;
 }
 
+/* Tall phone screenshots: cap at roughly phone width */
+img[src*="raw.githubusercontent.com"] {
+    max-width: min(320px, 100%);
+}
+
 /* Widget shots are cropped closer to square, so they can take a little more room */
 img[src*="-widget-"] {
-    max-width: 420px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 1rem;
+    max-width: min(420px, 100%);
 }

@@ -17,7 +17,7 @@ export default function ProjectComponent() {
     <section className="flex flex-col gap-8 p-8 w-full justify-center items-center">
        <p className="text-4xl font-bold my-8">Projects</p>
 
-      <div className="grid grid-cols-2 gap-8 max-sm:grid-cols-1">
+      <div className="grid w-full max-w-[1536px] grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <Card
             key={`${project.name}+${index}`}
@@ -25,7 +25,7 @@ export default function ProjectComponent() {
             radius={"lg"}
             isHoverable
             isPressable
-            className="p-unit-md max-w-unit-9xl border dark:border-zinc-700 bg-linear-to-tr from-neutral-200 to-neutral-50 dark:bg-linear-to-tr dark:from-black dark:to-zinc-900 min-w-unit-lg transition hover:-translate-x-1 hover:-translate-y-1"
+            className="h-full border dark:border-zinc-700 bg-linear-to-tr from-neutral-200 to-neutral-50 dark:bg-linear-to-tr dark:from-black dark:to-zinc-900 transition hover:-translate-x-1 hover:-translate-y-1"
             onPress={() => window.open(project.link, "_blank")}
           >
             <CardHeader className="flex flex-row gap-4">
@@ -38,7 +38,7 @@ export default function ProjectComponent() {
                   />
               <p className="text-2xl font-medium">{project.name}</p>
             </CardHeader>
-            <CardBody>
+            <CardBody className="grow">
               <p className="text-md text-foreground-500 font-normal">{project.description}</p>
             </CardBody>
             <CardFooter className="flex flex-wrap gap-2">

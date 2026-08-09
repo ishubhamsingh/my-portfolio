@@ -9,7 +9,7 @@ import resumePage2 from "@/public/images/shubham-singh-resume-page2.jpg";
 export default function AboutPage() {
   return (
     <section className="flex min-h-screen flex-col gap-8 p-8 w-full items-center">
-      <div className="flex flex-row w-4/6 max-sm:w-full m-8 justify-between">
+      <div className="flex flex-row w-4/6 max-sm:w-full max-w-4xl m-8 justify-between">
         <p className="text-4xl font-bold">Resume</p>
         <Button
           variant={"shadow"}
@@ -27,13 +27,13 @@ export default function AboutPage() {
           src={resumePage1}
           alt="Shubham Singh resume page 1"
           placeholder={"blur"}
-          className={"w-4/6 h-auto m-auto max-sm:w-full rounded-xl md:rounded-2xl lg:rounded-3xl"}
+          className={"w-4/6 h-auto m-auto max-w-4xl max-sm:w-full rounded-xl md:rounded-2xl lg:rounded-3xl"}
         />
         <NextImage
           src={resumePage2}
           alt="Shubham Singh resume page 2"
           placeholder={"blur"}
-          className={"w-4/6 h-auto m-auto max-sm:w-full rounded-xl md:rounded-2xl lg:rounded-b-3xl"}
+          className={"w-4/6 h-auto m-auto max-w-4xl max-sm:w-full rounded-xl md:rounded-2xl lg:rounded-b-3xl"}
         />
       </div>
     </section>

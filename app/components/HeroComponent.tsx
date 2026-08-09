@@ -29,11 +29,16 @@ const skills = [
 
 export default function HeroComponent() {
   return (
-    <section className="flex flex-row justify-center items-center gap-16 py-24 px-8 max-sm:py-8 w-full max-sm:flex-col">
-      <div className="hidden flex-row m-auto items-center max-sm:flex">
-      <AvatarComponent height={200} width={200} src={avatarImage} placeholder="blur"/>
+    // Side-by-side only once there is genuinely room for it. The text column is
+    // ~710px wide at its natural size and the avatar block another ~264px, so
+    // below xl the two are stacked. Laying them out in a row any earlier
+    // overflowed a `justify-center` container, which pushes content off the
+    // left edge where it cannot be scrolled back into view.
+    <section className="flex flex-col xl:flex-row justify-center items-center gap-12 xl:gap-16 py-16 xl:py-24 max-sm:py-8 px-8 w-full">
+      <div className="flex shrink-0 xl:order-2 xl:px-8">
+        <AvatarComponent height={200} width={200} src={avatarImage} placeholder="blur"/>
       </div>
-      <div className="flex flex-col gap-4 items-start">
+      <div className="flex flex-col gap-4 items-start xl:order-1">
         <p className="font-regular text-6xl uppercase text-foreground-500">
           Hello,
         </p>
@@ -47,7 +52,7 @@ export default function HeroComponent() {
           I&apos;m a Software Engineer who loves making modern Android & Web
           apps.
         </p>
-        <div className="flex flex-row gap-8 pt-4 max-sm:flex-col items-start">
+        <div className="flex flex-row flex-wrap gap-x-8 gap-y-4 pt-4 max-sm:flex-col items-start">
           {skills.map((skill, index) => (
             <div
               className="flex flex-row gap-2 item-center justify-center"
@@ -60,9 +65,6 @@ export default function HeroComponent() {
             </div>
           ))}
         </div>
-      </div>
-      <div className="px-8 flex max-w-fit flex-row items-center max-sm:hidden">
-        <AvatarComponent height={200} width={200} src={avatarImage} placeholder="blur"/>
       </div>
     </section>
   );
