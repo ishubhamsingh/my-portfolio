@@ -68,8 +68,13 @@ blockquote.default {
     unicode-bidi: isolate;
 }
 
+/* display:block (rather than table) lets a wide table scroll inside itself
+   instead of pushing the page wider than the viewport on mobile. */
 table.default {
-    display: table;
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    width: fit-content;
     box-sizing: border-box;
     text-indent: initial;
     unicode-bidi: isolate;
@@ -78,6 +83,15 @@ table.default {
 /* Phone screenshots from GitHub — cap at phone width */
 img[src*="raw.githubusercontent.com"] {
     max-width: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1rem;
+}
+
+/* Widget shots are cropped closer to square, so they can take a little more room */
+img[src*="-widget-"] {
+    max-width: 420px;
     display: block;
     margin-left: auto;
     margin-right: auto;
