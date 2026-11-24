@@ -52,10 +52,10 @@ const uses: UseItem[] = [
   },
   {
     name: "Nothing Phone (3) (Black)",
-    specs: "Snapdragon 8s Gen 4, 256 GB, 12 GB, Android 16, Nothing OS 4.0",
-    description: "Using it as my secondary personal phone, particularly love Nothing OS",
+    specs: "Snapdragon 8s Gen 4, 256 GB, 12 GB, Android 17, Nothing OS 5.0",
+    description: "My work phone for Android development and testing, particularly love Nothing OS",
     type: UsesTypes.Mobile,
-    category: [UsesCategories.Personal],
+    category: [UsesCategories.Work],
     link: "https://www.flipkart.com/nothing-phone-3-black-256-gb/p/itm0c32a18b0df8a",
   },
   {
@@ -67,13 +67,21 @@ const uses: UseItem[] = [
     link: "https://www.amazon.in/Apple-iPad-Air-10-5-inch-Wi-Fi-64GB/dp/B07PY3WB42",
   },
   {
-    name: "Apple Watch Series 6",
-    specs: "44 mm, GPS, Watch OS 26",
+    name: "Galaxy S26 Ultra (Black)",
+    specs: "256 GB, Android 17, One UI 9",
     description:
-      "Perfect iPhone companion, use it for sleep & fitness tracking",
+      "My secondary personal phone, a flagship Android with a great camera and S Pen",
     type: UsesTypes.Mobile,
     category: [UsesCategories.Personal],
-    link: "https://www.amazon.in/New-Apple-Watch-GPS-44mm-Aluminium/dp/B08J69JQV2",
+    link: "https://www.samsung.com/in/smartphones/galaxy-s26-ultra/",
+  },
+  {
+    name: "Apple Watch Series 12 (Black)",
+    description:
+      "Upgraded from Series 6, perfect iPhone companion, use it for sleep & fitness tracking",
+    type: UsesTypes.Mobile,
+    category: [UsesCategories.Personal],
+    link: "https://www.apple.com/in/apple-watch-series-12/",
   },
   {
     name: "Dell G15 7588, 2018, 15.6 inch",
@@ -146,11 +154,11 @@ const uses: UseItem[] = [
     link: "https://www.sony.co.in/electronics/headband-headphones/wh-1000xm4",
   },
   {
-    name: "Apple AirPods Pro",
-    description: "Use it for comfort and ease, mostly for calls",
+    name: "Apple AirPods Pro (3rd Gen)",
+    description: "Upgraded from the original AirPods Pro, use it for comfort and ease, mostly for calls",
     type: UsesTypes.Audio,
     category: [UsesCategories.Work, UsesCategories.Personal],
-    link: "https://www.flipkart.com/apple-airpods-pro-magsafe-charging-case-bluetooth-headset/p/itm0847811966368",
+    link: "https://www.apple.com/in/airpods-pro/",
   },
   {
     name: "Sony PlayStation 5",
@@ -169,12 +177,29 @@ const uses: UseItem[] = [
     link: "https://www.lg.com/in/monitors/ergo-monitors/32un880-b/",
   },
   {
+    name: "Sony Bravia 5, 55 inch",
+    specs: "4K, Mini LED, Google TV",
+    description:
+      "My new living room TV, great picture with deep blacks for movies and gaming",
+    type: UsesTypes.Entertainment,
+    category: [UsesCategories.Personal],
+    link: "https://www.sony.co.in/en/electronics/televisions/bravia-5",
+  },
+  {
     name: "Apple TV 4K, 2022",
     specs: "A15 Bionic, 128 GB, Wifi + Ethernet, tvOS 18.2.1",
     description: "Perfect TV box, smooth and lag-free, plus Apple ecosystem",
     type: UsesTypes.Entertainment,
     category: [UsesCategories.Personal],
     link: "https://www.apple.com/in/shop/buy-tv/apple-tv-4k/128gb",
+  },
+  {
+    name: "Sonos Arc Ultra (Black)",
+    description:
+      "Soundbar paired with my TV, Dolby Atmos makes movies feel like a theatre",
+    type: UsesTypes.Audio,
+    category: [UsesCategories.Personal],
+    link: "https://www.sonos.com/en-in/shop/arc-ultra",
   },
   {
     name: "Edifier R1855DB",
